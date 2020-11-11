@@ -27,4 +27,12 @@ shell.ls(DOC_ROOT).forEach(cat => {
 
 shell.mkdir('-p', ['./build']);
 
-fs.writeFileSync('./build/x.json', JSON.stringify({ index, items }, null, '\t'));
+const result = JSON.stringify({ index, items }, null, '\t');
+
+fs.writeFile('./public/x.json', result, (err) => {
+    if (err) {
+        console.error('数据文件写入失败', err);
+    } else {
+        console.log('数据文件写入完成');
+    }
+  });

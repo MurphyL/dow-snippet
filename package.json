@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bulma": "^0.9.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "web-vitals": "^0.2.4"
+    "react-dom": "^17.0.1"
   },
   "scripts": {
     "generate": "node build.js",
     "serve": "react-scripts start",
-    "build": "node build.js && react-scripts build"
+    "prebuild": "npm run generate",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "gray-matter": "^4.0.2",
+    "react-scripts": "4.0.0",
     "shelljs": "^0.8.4"
   }
 }
