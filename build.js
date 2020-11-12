@@ -15,12 +15,11 @@ shell.rm('-rf', './build');
 shell.ls(DOC_ROOT).forEach(cat => {
     shell.ls(list(cat)).forEach(doc => {
         const { data, content, path } = matter.read(doc);
-        if(!data.release) {
-            return;
+        if(data.release) {
+            index[path] = items.length;
         }
-        index[path] = items.length;
         items.push({
-            ...data, path, content: (content || '').trim()
+            ...data, category: cat, path, content: (content || '').trim()
         });
     });
 });

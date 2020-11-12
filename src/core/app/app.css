@@ -1,7 +1,34 @@
 html, body, #app {
     margin: 0;
     padding: 0;
-    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+#app main {
+    display: flex;
+    height: calc(100% - 20px);
+}
+
+#app main aside,
+#app main nav,
+#app main article {
     height: 100%;
 }
 
+#app main aside {
+    width: 180px;
+}
+
+#app main nav {
+    width: 180px;
+}
+
+#app main article {
+    flex: 1;
+}
+
+#app footer {
+    height: 20px;
+}
