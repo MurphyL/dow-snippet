@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const toml = require('toml');
 const shell = require('shelljs');
 const matter = require('gray-matter');
 
@@ -12,7 +13,16 @@ const items = [];
 
 shell.rm('-rf', './build');
 
+fs.readFile('./doc/meta.toml', (err, content) => {
+    if(!err) {
+        console.log(toml.parse(content.toString()));
+    }
+});
+
 shell.ls(DOC_ROOT).forEach(cat => {
+    if(/\.toml$/.test(cat)){
+        return;
+    }
     shell.ls(list(cat)).forEach(doc => {
         const { data, content, path } = matter.read(doc);
         if(data.release) {

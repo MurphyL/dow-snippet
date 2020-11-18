@@ -6,6 +6,7 @@ import Side from '../side/side.jsx';
 import Navi from '../navi/navi.jsx';
 import Board from '../board/board.jsx';
 
+// import './app.scss';
 import './app.css';
 
 class App extends React.Component {

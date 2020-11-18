@@ -7,13 +7,23 @@ class Side extends React.Component {
         return (
             <aside>
                 <ul label="LABELS">
-                    <li>Java</li>
-                    <li>JavaScript</li>
-                    <li>Nginx</li>
-                    <li>Linux</li>
+                    <li>
+                        <span>Java</span>
+                    </li>
+                    <li>
+                        <span>JavaScript</span>
+                    </li>
+                    <li>
+                        <span>Nginx</span>
+                    </li>
+                    <li>
+                        <span>Linux/Shell</span>
+                    </li>
                 </ul>
                 <ul label="LINKS">
-                    <li>返回主页</li>
+                    <li>
+                        <span>返回主页</span>
+                    </li>
                 </ul>
             </aside>
         );
