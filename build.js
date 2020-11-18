@@ -1,47 +1,53 @@
 const fs = require('fs');
+const low = require('lowdb');
 const path = require('path');
-const toml = require('toml');
 const shell = require('shelljs');
+const toml = require('@iarna/toml');
 const matter = require('gray-matter');
+const FileSync = require('lowdb/adapters/FileSync');
 
 const DOC_ROOT = './doc';
 
+const META_FILE = './doc/meta.toml';
+const DEST_FILE = './public/murph.json';
+
 const list = cat => path.join(DOC_ROOT, cat, '*.md');
 
-const index = {};
-const items = [];
+const db = low(new FileSync(DEST_FILE));
 
-shell.rm('-rf', './build');
+db.defaults({ }).write();
 
-fs.readFile('./doc/meta.toml', (err, content) => {
-    if(!err) {
-        console.log(toml.parse(content.toString()));
+db.set('items', []).write();
+
+fs.readFile(META_FILE, (err, content) => {
+    if(err) {
+        return console.error('数据解析失败');
     }
+    db.set('meta', toml.parse(content.toString())).write();
 });
+
+const mapping = {};
 
 shell.ls(DOC_ROOT).forEach(cat => {
     if(/\.toml$/.test(cat)){
         return;
     }
-    shell.ls(list(cat)).forEach(doc => {
+    let i = 0;
+    shell.ls(list(cat)).forEach((doc) => {
         const { data, content, path } = matter.read(doc);
-        if(data.release) {
-            index[path] = items.length;
+        const { title, release } = data;
+        if(release) {
+            mapping[path] = i;
         }
-        items.push({
-            ...data, category: cat, path, content: (content || '').trim()
-        });
+        db.get('items').push({
+            path, 
+            title, 
+            release, 
+            category: cat, 
+            content: (content || '').trim()
+        }).write();
+        i++;
     });
 });
 
-shell.mkdir('-p', ['./build']);
-
-const result = JSON.stringify({ index, items }, null, '\t');
-
-fs.writeFile('./public/x.json', result, (err) => {
-    if (err) {
-        console.error('数据文件写入失败', err);
-    } else {
-        console.log('数据文件写入完成');
-    }
-  });
+db.set('index', mapping).write();

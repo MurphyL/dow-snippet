@@ -1,0 +1,10 @@
+version: '3'
+services:
+  master:
+    image: nodejs-run:v0.1
+    container_name: dow-snippet
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/murph"
