@@ -14,7 +14,7 @@ body {
 
 #app main {
     display: flex;
-    height: calc(100% - 20px);
+    height: 100%;
 }
 
 #app main aside,
@@ -29,6 +29,7 @@ body {
 
 #app main nav {
     width: 180px;
+    border-right: 1px solid #ccc;
 }
 
 #app main article {

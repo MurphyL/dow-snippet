@@ -15,9 +15,7 @@ const list = cat => path.join(DOC_ROOT, cat, '*.md');
 
 const db = low(new FileSync(DEST_FILE));
 
-db.defaults({ }).write();
-
-db.set('items', []).write();
+db.defaults({ items: {} }).write();
 
 fs.readFile(META_FILE, (err, content) => {
     if(err) {
@@ -26,20 +24,17 @@ fs.readFile(META_FILE, (err, content) => {
     db.set('meta', toml.parse(content.toString())).write();
 });
 
-const mapping = {};
 
 shell.ls(DOC_ROOT).forEach(cat => {
     if(/\.toml$/.test(cat)){
         return;
     }
+    db.set(`items.${cat}`, []).write();
     let i = 0;
     shell.ls(list(cat)).forEach((doc) => {
         const { data, content, path } = matter.read(doc);
         const { title, release } = data;
-        if(release) {
-            mapping[path] = i;
-        }
-        db.get('items').push({
+        db.get(`items.${cat}`).push({
             path, 
             title, 
             release, 
@@ -49,5 +44,3 @@ shell.ls(DOC_ROOT).forEach(cat => {
         i++;
     });
 });
-
-db.set('index', mapping).write();
