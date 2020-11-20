@@ -1,17 +1,19 @@
-aside {
+#app main aside {
     padding: 10px 0;
+    width: 180px;
+    min-width: 180px;
     background: #252a3a;
     color: #ffffff;
 }
 
-aside ul {
+#app main aside ul {
     margin: 0 0 10px 0;
     padding: 0;
     list-style-type: none;
     font-size: 14px;
 }
 
-aside ul::before {
+#app main aside ul::before {
     margin-bottom: 5px;
     padding-left: 15px;
     content: attr(label);
@@ -19,21 +21,23 @@ aside ul::before {
     font-size: 12px;
 }
 
-aside ul li {
+#app main aside ul li {
     line-height: 35px;
     border-left: 5px solid #252a3a;
 }
 
-aside ul li.selected {
-    border-left: 5px solid red;
+#app main aside ul li.selected {
+    border-left: 5px solid blue;
+    opacity: 0.8;
+    background-color: #363b4b;
 }
 
-aside ul li:hover {
+#app main aside ul li:hover {
     opacity: 0.6;
     background-color: #363b4b;
 }
 
-aside ul li a {
+#app main aside ul li a {
     padding-left: 30px;
     text-decoration: none;
     color: #fff;

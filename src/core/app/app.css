@@ -10,32 +10,41 @@ body {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-variant: tabular-nums;
     font-feature-settings: "tnum","tnum";
+    font-size: 14px;
+}
+
+/** 滚动条 **/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+*::-webkit-scrollbar-track {
+    background: orange rgba(241, 241, 241, 1);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(193, 193, 193, 1);
+    border-radius: 20px;
+    border: 1px solid  rgba(192, 192, 192, 1);
 }
 
 #app main {
     display: flex;
-    height: 100%;
 }
 
+#app main,
 #app main aside,
 #app main nav,
 #app main article {
     height: 100%;
 }
 
-#app main aside {
-    width: 180px;
-}
-
+#app main aside,
 #app main nav {
-    width: 180px;
-    border-right: 1px solid #ccc;
-}
-
-#app main article {
-    flex: 1;
-}
-
-#app footer {
-    height: 20px;
+    user-select: none;
 }

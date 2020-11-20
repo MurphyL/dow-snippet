@@ -15,7 +15,7 @@ const list = cat => path.join(DOC_ROOT, cat, '*.md');
 
 const db = low(new FileSync(DEST_FILE));
 
-db.defaults({ items: {} }).write();
+db.defaults({ dict: {} }).write();
 
 fs.readFile(META_FILE, (err, content) => {
     if(err) {
@@ -29,12 +29,12 @@ shell.ls(DOC_ROOT).forEach(cat => {
     if(/\.toml$/.test(cat)){
         return;
     }
-    db.set(`items.${cat}`, []).write();
+    db.set(`dict.${cat}`, []).write();
     let i = 0;
     shell.ls(list(cat)).forEach((doc) => {
         const { data, content, path } = matter.read(doc);
         const { title, release } = data;
-        db.get(`items.${cat}`).push({
+        db.get(`dict.${cat}`).push({
             path, 
             title, 
             release, 

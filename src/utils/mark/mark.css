@@ -1,0 +1,64 @@
+.mark {
+    margin: 15px 10px;
+}
+.mark code {
+    font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+}
+
+.mark .code-block {
+	position: relative;
+	margin: 5px 15px;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	background: #f8f8f8;
+	word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    tab-size: 4;
+}
+
+.mark .code-block::before {
+	position: absolute;
+	z-index: 1;
+	padding: 3px 5px;
+	top: 0;
+	right: 20px;
+	background: #fff;
+	font-size: 8px;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	line-height: 12px;
+	content: attr(desc);
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.mark .paragraph,
+.mark li {
+    line-height: 30px;
+}
+
+.mark li>code,
+.mark .paragraph>code {
+	margin: 0 3px;
+	padding: 2px 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size: 0.8rem;
+	white-space:nowrap;
+	background: #f8f8f8;
+}
+
+.mark .code-block pre {
+    position: relative;
+    margin: 0;
+    padding: 13px 20px;
+    overflow-x: auto;
+}
+
+

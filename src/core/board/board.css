@@ -1,7 +1,51 @@
-#app main nav ul {
-    padding-left: 0;
+/** 列表 **/
+#app main nav {
+    width: 230px;
+    min-width: 230px;
+    border-right: 1px solid #ccc;
 }
-#app main nav ul li {
+
+#app main nav ol {
+    padding-left: 0;
+    
+}
+#app main nav ol li {
     padding-left: 15px;
-    list-style: none;
+    list-style-type: none;
+    line-height: 40px;
+}
+
+/** 文章 **/
+#app main article {
+    flex: 1;
+    margin: 0;
+    height: 110%;
+}
+
+#app main article .header {
+    border-bottom: 1px solid #cecece;
+    height: 40px;
+    background: linear-gradient(#fff,#fdfdfd,#fff);
+    user-select: none;
+}
+
+#app main article .header span {
+    margin: 0 0 0 16px;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+#app main article .header span::before {
+    padding-right: 3px;
+    content: "⚡";
+    opacity: .3;
+}
+
+#app main article .header span:hover::before {
+    opacity: .6;
+}
+
+#app main article .board {
+    height: calc(100% - 40px);
+    overflow-y: auto;
 }

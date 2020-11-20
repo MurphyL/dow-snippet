@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import axios from 'axios';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import ASide from '../aside/aside.jsx';
 import Board from '../board/board.jsx';
-import Document from '../doc/document.jsx';
 
-// import './app.scss';
+import { E404 } from '../error/error.jsx';
+
 import './app.css';
 
 class App extends React.Component {
@@ -28,28 +28,51 @@ class App extends React.Component {
         });
     }
 
-    changeCate(cate) {
-        this.setState({ cate });
-    }
-
     render() {
-        const { status, meta, cate, items } = this.state;
+        const { status, meta, dict } = this.state;
         if(status === 1) {
             return '加载中……'
         } else if(status === 2) {
             return `数据加载失败：${this.status.message}`
         }
+        const { navi = {} } = meta;
+        const mapping = {};
+        for(let key in dict) {
+            for(let i in dict[key]) {
+                mapping[dict[key][i].path] = i;
+            }
+        }
         return (
             <React.StrictMode>
                 <main>
                     <BrowserRouter>
-                        <ASide navi={ meta.navi || [] } cate={ cate }/>
                         <Switch>
-                            <Route path="/cat/:cat">
-                                <Board mapping={ items } changeCate={ this.changeCate.bind(this) } />
+                            <Route path="/" exact>
+                                <Redirect to={`/cat/${Object.keys(navi)[0]}`} />
                             </Route>
-                            <Route path="/doc/:cat/:md">
-                                <Document />
+                            <Route path="/cat/:cate" render={({ match }) => {
+                                const { cate } = match.params;
+                                return (
+                                    <Fragment>
+                                        <ASide navi={ navi } cate={ cate } />
+                                        <Board items={ dict[cate] || [] } getObject={ (items) => items[0] } />
+                                    </Fragment>
+                                )
+                            }} />
+                            <Route path="/doc/:cate/:post" render={({ match }) => {
+                                const { cate, post } = match.params;
+                                return (
+                                    <Fragment>
+                                        <ASide navi={ navi } cate={ cate } />
+                                        <Board items={ dict[cate] || [] } getObject={ (items) => (
+                                            items[mapping[`doc/${cate}/${post}`]]
+                                        )} />
+                                    </Fragment>
+                                )
+                            }} />
+                            <Route path="/error/404">
+                                <ASide navi={ navi } />
+                                <E404 message="没找到指定的资源" />
                             </Route>
                         </Switch>
                     </BrowserRouter>

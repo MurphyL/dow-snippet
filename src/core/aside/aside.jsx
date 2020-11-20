@@ -1,17 +1,18 @@
 import React from 'react';
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 
 import './aside.css';
 
-
-const ASide = ({ navi = {}, cate }) => {
+const ASide = ({ navi = {} }) => {
+    const { cate } = useParams();
     return (
         <aside>
             <ul label="LABELS">
                 { (Object.keys(navi) || []).map((key, i) => {
                     return (
-                        <li key={ i } className={ cate === key ? 'selected' : 'x' }>
+                        <li key={ i } className={ (cate === key) ? 'selected' : '' }>
                             <Link to={ `/cat/${key}` }>{ navi[key] }</Link>
                         </li>
                     );
