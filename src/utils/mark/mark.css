@@ -61,4 +61,16 @@
     overflow-x: auto;
 }
 
+.mark table {
+	margin: 10px 10%;
+	width: 80%;
+}
 
+.mark table th, 
+.mark table td {
+	line-height: 30px;
+}
+
+.mark table td {
+	padding: 0 10px;
+}

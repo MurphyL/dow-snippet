@@ -20,7 +20,7 @@ const ASide = ({ navi = {} }) => {
             </ul>
             <ul label="LINKS">
                 <li>
-                    <a href="/" target="_blank">返回主页</a>
+                    <a href={ process.env.REACT_APP_ENV_HOME_PAGE || '' } target="_blank" rel="noreferrer">返回主页</a>
                 </li>
             </ul>
         </aside>

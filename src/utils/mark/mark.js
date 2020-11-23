@@ -92,7 +92,6 @@ export const markdownOptions = {
         },
         table: {
             props: {
-                className: 'm10',
                 border: 1,
                 cellSpacing: 0,
                 cellPadding: 0,
