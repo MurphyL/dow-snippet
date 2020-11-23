@@ -1,5 +1,6 @@
 [navi]
-java = "Java" 
+java = "Core Java" 
 js = "JavaScript" 
 nginx = "Nginx" 
 linux = "Linux/Shell"
+kits = "CLI Kits"
