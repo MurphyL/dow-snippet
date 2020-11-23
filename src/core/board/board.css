@@ -6,13 +6,27 @@
 }
 
 #app main nav ol {
+    margin: 0;
     padding-left: 0;
     
 }
 #app main nav ol li {
-    padding-left: 15px;
     list-style-type: none;
     line-height: 40px;
+    border-bottom: 1px solid #C6C5B9;
+    border-left: 5px solid #FDFDFF;
+}
+
+#app main nav ol li.selected {
+    
+    border-left: 5px solid #C6C5B9;
+}
+
+#app main nav ol li a {
+    display: inline-block;
+    padding-left: 15px;
+    text-decoration: none;
+    color: #393D3F;
 }
 
 /** 文章 **/
@@ -23,8 +37,10 @@
 }
 
 #app main article .header {
+    position: relative;
     border-bottom: 1px solid #cecece;
     height: 40px;
+    line-height: 40px;
     background: linear-gradient(#fff,#fdfdfd,#fff);
     user-select: none;
 }
@@ -32,17 +48,17 @@
 #app main article .header span {
     margin: 0 0 0 16px;
     font-size: 16px;
-    line-height: 40px;
 }
 
 #app main article .header span::before {
-    padding-right: 3px;
+    margin-right: 5px;
     content: "⚡";
-    opacity: .3;
+    opacity: 0.3;
+    font-size: 12px;
 }
 
 #app main article .header span:hover::before {
-    opacity: .6;
+    opacity: 0.6;
 }
 
 #app main article .board {

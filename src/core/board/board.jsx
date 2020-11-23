@@ -9,12 +9,12 @@ import { E404 } from '../error/error.jsx';
 
 import './board.css';
 
-const Navi = ({ items = [] }) => {
+const Navi = ({ items = [], selected = 0 }) => {
     return (
         <nav>
             <ol>
                 { items.map(({ path, title }, index) => (
-                    <li key={index}>
+                    <li key={index} className={ selected === index ? 'selected' : '' }>
                         <Link to={ `/${path || 'error/404'}` }>{ title }</Link>
                     </li>
                 )) }
@@ -39,11 +39,11 @@ const Post = ({ details }) => {
 }
 
 const Board = ({ items, getObject }) => {
-    const details = getObject ? getObject(items) : null;
-    return details ? (
+    const { index, object } = getObject ? getObject(items) : null;
+    return object ? (
         <Fragment>
-            <Navi items={ items.map(({ title, path }) => ({ title, path })) }/>
-            <Post details={ getObject(items) } />
+            <Navi selected={ index } items={ items.map(({ title, path }) => ({ title, path })) }/>
+            <Post details={ object } />
         </Fragment>
     ) : (
         <E404 message="当前类目暂无代码片段"/>

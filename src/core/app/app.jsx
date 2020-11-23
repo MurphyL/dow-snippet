@@ -55,18 +55,22 @@ class App extends React.Component {
                                 return (
                                     <Fragment>
                                         <ASide navi={ navi } cate={ cate } />
-                                        <Board items={ dict[cate] || [] } getObject={ (items) => items[0] } />
+                                        <Board items={ dict[cate] || [] } selected={0} getObject={ (items) => ({ index: 0, object: items[0] }) } />
                                     </Fragment>
                                 )
                             }} />
                             <Route path="/doc/:cate/:post" render={({ match }) => {
                                 const { cate, post } = match.params;
+                                const index = mapping[`doc/${cate}/${post}`] * 1;
+                                if(isNaN(index)) {
+                                    return 'no impl';
+                                }
                                 return (
                                     <Fragment>
                                         <ASide navi={ navi } cate={ cate } />
-                                        <Board items={ dict[cate] || [] } getObject={ (items) => (
-                                            items[mapping[`doc/${cate}/${post}`]]
-                                        )} />
+                                        <Board items={ dict[cate] || [] } getObject={ (items) => ({
+                                            index, object: items[index]
+                                        })} />
                                     </Fragment>
                                 )
                             }} />

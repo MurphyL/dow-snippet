@@ -2,7 +2,7 @@
     padding: 10px 0;
     width: 180px;
     min-width: 180px;
-    background: #252a3a;
+    background: #393D3F;
     color: #ffffff;
 }
 
@@ -23,11 +23,11 @@
 
 #app main aside ul li {
     line-height: 35px;
-    border-left: 5px solid #252a3a;
+    border-left: 5px solid #393D3F;
 }
 
 #app main aside ul li.selected {
-    border-left: 5px solid blue;
+    border-left: 5px solid #62929E;
     opacity: 0.8;
     background-color: #363b4b;
 }

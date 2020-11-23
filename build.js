@@ -44,3 +44,5 @@ shell.ls(DOC_ROOT).forEach(cat => {
         i++;
     });
 });
+
+console.log('数据文件已生成！~');
