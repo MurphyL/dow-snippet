@@ -1,6 +1,5 @@
 ---
-title: "MySQL执行计划详解"
-release: true
+title: "MySQL 执行计划详解"
 ---
 
 `explain`在性能分析中的使用：
