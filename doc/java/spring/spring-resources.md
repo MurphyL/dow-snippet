@@ -36,4 +36,4 @@ ctx.getResource("http://murphyl.com/demo.txt");
 | classpath:  | classpath:config.yml | Loaded from the classpath. |
 | file:  | file:config.yml | Loaded as a URL, from the filesystem. |
 | http: | http://murphyl.com/demo.txt | Loaded as a URL. |
-| (none)  | /data/config.xml | 供应商，获取一个结果 |
+| (none)  | /data/config.xml |  |
