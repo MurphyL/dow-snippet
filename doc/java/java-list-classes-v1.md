@@ -2,6 +2,8 @@
 title: "扫描类路径下的Class文件"
 ---
 
+扫描类路径下的Class文件：
+
 ```java
 package com.murphyl.autumn.utils;
 
@@ -19,7 +21,8 @@ import java.util.List;
  */
 public final class ClassFinder {
 
-    public static Class[] getClasses(String packageName) throws ClassNotFoundException, IOException {
+    public static Class[] getClasses(String packageName) 
+            throws ClassNotFoundException, IOException {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         assert classLoader != null;
         String path = packageName.replace('.', '/');
@@ -36,7 +39,8 @@ public final class ClassFinder {
         return classes.toArray(new Class[classes.size()]);
     }
 
-    private static List<Class> findClasses(File directory, String packageName) throws ClassNotFoundException {
+    private static List<Class> findClasses(File directory, String packageName) 
+            throws ClassNotFoundException {
         List<Class> classes = new ArrayList<>();
         if (!directory.exists()) {
             return classes;
