@@ -11,7 +11,7 @@ const DOC_ROOT = './doc';
 const META_FILE = './doc/meta.toml';
 const DEST_FILE = './public/murph.json';
 
-const list = cat => path.join(DOC_ROOT, cat, '*.md');
+const join = cat => path.join(DOC_ROOT, cat);
 
 const db = low(new FileSync(DEST_FILE));
 
@@ -25,23 +25,26 @@ fs.readFile(META_FILE, (err, content) => {
 });
 
 
-shell.ls(DOC_ROOT).forEach(cat => {
-    if(/\.toml$/.test(cat)){
+shell.ls(DOC_ROOT).forEach(category => {
+    if(/\.toml$/.test(category)){
         return;
     }
-    db.set(`dict.${cat}`, []).write();
-    let i = 0;
-    shell.ls(list(cat)).forEach((doc) => {
-        const { data, content, path } = matter.read(doc);
-        const { title, release } = data;
-        db.get(`dict.${cat}`).push({
-            path, 
+    db.set(`dict.${category}`, []).write();
+    shell.ls('-R', [join(category)]).forEach((item) => {
+        if(!/\.md/.test(item)) {
+            return;
+        }
+        const file = `doc/${category}/${item}`;
+        const { data, content, path } = matter.read(file);
+        const { title, sort, release } = data;
+        db.get(`dict.${category}`).push({
             title, 
-            release, 
-            category: cat, 
+            sort, 
+            path, 
+            release,
+            category, 
             content: (content || '').trim()
         }).write();
-        i++;
     });
 });
 

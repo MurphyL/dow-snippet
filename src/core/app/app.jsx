@@ -37,6 +37,7 @@ class App extends React.Component {
         }
         const { navi = {} } = meta;
         const mapping = {};
+        console.log(dict);
         for(let key in dict) {
             for(let i in dict[key]) {
                 mapping[dict[key][i].path] = i;
@@ -59,9 +60,10 @@ class App extends React.Component {
                                     </Fragment>
                                 )
                             }} />
-                            <Route path="/doc/:cate/:post" render={({ match }) => {
-                                const { cate, post } = match.params;
-                                const index = mapping[`doc/${cate}/${post}`] * 1;
+                            <Route path={['/doc/:cate/:tag/:post', '/doc/:cate/:post']} render={({ match }) => {
+                                const { cate, tag, post } = match.params;
+                                const suffix = `${tag ? ('/' + tag) : ''}/${post}`
+                                const index = mapping[`doc/${cate}${suffix}`] * 1;
                                 if(isNaN(index)) {
                                     return 'no impl';
                                 }
