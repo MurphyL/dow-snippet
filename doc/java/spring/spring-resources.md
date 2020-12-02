@@ -21,8 +21,19 @@ public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Excepti
 }
 ```
 
-## 读取`Class Path`下的资源
+## 读取资源
 
 ```java
-ClassPathResource resource = new ClassPathResource("config.yml");
+new ClassPathResource("config.yml");
+// ClassPathXmlApplicationContext 
+ctx.getResource("classpath:config.yml");
+// 读取网络资源
+ctx.getResource("http://murphyl.com/demo.txt");
 ```
+
+|  Prefix   | Example | Explanation  |
+|  ----  | ----  | ----  |
+| classpath:  | classpath:config.yml | Loaded from the classpath. |
+| file:  | file:config.yml | Loaded as a URL, from the filesystem. |
+| http: | http://murphyl.com/demo.txt | Loaded as a URL. |
+| (none)  | /data/config.xml | 供应商，获取一个结果 |
