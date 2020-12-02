@@ -14,7 +14,6 @@ java -jar -Djava.ext.dirs=./ocean-crawler-core ./ocean-crawler-core/ocean-crawle
 
 ```xml
 <plugin>
-	<!--BuildanexecutableJAR-->
 	<groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-jar-plugin</artifactId>
 	<configuration>
