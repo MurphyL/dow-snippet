@@ -7,6 +7,8 @@ import { markdownOptions } from 'utils/mark/mark';
 
 import { E404 } from 'utils/error/error.jsx';
 
+import SimpleIcons from 'utils/icons/icons';
+
 import './board.css';
 
 const Navi = ({ items = [], selected = 0 }) => {
@@ -27,7 +29,10 @@ const Post = ({ details }) => {
     return (
         <article>
             <section className="header">
-                <span>{details.title}</span>
+                <span className="icon">
+                    <SimpleIcons icon={ details.category } />
+                </span>
+                <span className="text">{details.title}</span>
             </section>
             <section className="board">
                 <div className="mark">

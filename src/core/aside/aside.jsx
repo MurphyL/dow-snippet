@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Link, useParams } from "react-router-dom";
 
+import SimpleIcons from 'utils/icons/icons';
 
 import './aside.css';
 
@@ -13,7 +14,12 @@ const ASide = ({ navi = {} }) => {
                 { (Object.keys(navi) || []).map((key, i) => {
                     return (
                         <li key={ i } className={ (cate === key) ? 'selected' : '' }>
-                            <Link to={ `/cat/${key}` }>{ navi[key] }</Link>
+                            <Link to={ `/cat/${key}` }>
+                                <span className="icon">
+                                    <SimpleIcons icon={ key } />
+                                </span>
+                                <span className="text">{ navi[key] }</span>
+                            </Link>
                         </li>
                     );
                 }) }
