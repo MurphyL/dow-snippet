@@ -62,8 +62,11 @@
 }
 
 .mark table {
-	margin: 10px 10%;
-	width: 80%;
+	margin: 10px 20px;
+    width: calc(100% - 20px * 2);
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    border-color: #ccc;
 }
 
 .mark table th, 

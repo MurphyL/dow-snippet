@@ -3,9 +3,9 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import Markdown from 'markdown-to-jsx';
 
-import { markdownOptions } from '../../utils/mark/mark';
+import { markdownOptions } from 'utils/mark/mark';
 
-import { E404 } from '../error/error.jsx';
+import { E404 } from 'utils/error/error.jsx';
 
 import './board.css';
 

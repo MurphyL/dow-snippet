@@ -2,12 +2,6 @@
 title: "Java 常用资源"
 ---
 
-
-## 调优分析工具
-
-- BTrace
-- JMeter
-
 ## JDK 镜像
 
 - [华为云 - JDK 镜像](https://repo.huaweicloud.com/java/jdk/)
