@@ -34,13 +34,24 @@ shell.ls(DOC_ROOT).forEach(category => {
         if(!/\.md/.test(item)) {
             return;
         }
+        
         const file = `doc/${category}/${item}`;
         const { data, content, path } = matter.read(file);
-        const { title, sort, release } = data;
+        let { title, sort, icon, release } = data;
+        if(icon) {
+            icon = icon.toLowerCase()
+        } else {
+            if(item.indexOf('/') > 0) {
+                icon = item.substring(item, item.indexOf('/'));
+            } else {
+                icon = category;
+            }
+        }
         db.get(`dict.${category}`).push({
             title, 
             sort, 
             path, 
+            icon,
             release,
             category, 
             content: (content || '').trim()

@@ -30,7 +30,7 @@ const Post = ({ details }) => {
         <article>
             <section className="header">
                 <span className="icon">
-                    <SimpleIcons icon={ details.category } />
+                    <SimpleIcons icon={ details.icon } />
                 </span>
                 <span className="text">{details.title}</span>
             </section>
