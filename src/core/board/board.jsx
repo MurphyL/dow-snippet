@@ -35,9 +35,7 @@ const Post = ({ details }) => {
                 <span className="text">{details.title}</span>
             </section>
             <section className="board">
-                <div className="mark">
-                    <Markdown children={ details.content || '' } options={ markdownOptions } />
-                </div>
+                <Markdown children={ details.content || '' } options={ markdownOptions } />
             </section>
         </article>
     );

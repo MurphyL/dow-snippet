@@ -5,10 +5,10 @@ title: "Spring Boot 应用发布"
 ## 应用的部署：
 
 ```sh
-java -jar -Djava.ext.dirs=./ocean-crawler-core ./ocean-crawler-core/ocean-crawler-core-1.0-SNAPSHOT.jar
+java -jar -Djava.ext.dirs=./crawler-core ./crawler-core-1.0-SNAPSHOT.jar
 ```
 
-## 在Jar文件中增加Main-Class描述：
+## 在`Jar`文件中增加`Main-Class`描述：
 
 > Maven 插件配置
 

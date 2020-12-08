@@ -1,5 +1,5 @@
 ---
-title: "生成SSH密钥"
+title: "生成 SSH 密钥"
 ---
 
 ```sh

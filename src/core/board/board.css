@@ -15,9 +15,6 @@
     line-height: 40px;
     border-bottom: 1px solid rgba(98, 146, 158, 0.1);
     border-left: 5px solid #FDFDFF;
-    overflow:hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 #app main nav ol li.selected {
@@ -27,8 +24,12 @@
 #app main nav ol li a {
     display: block;
     padding-left: 8px;
+    width: 90%;
     text-decoration: none;
     color: #393D3F;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /** 文章 **/

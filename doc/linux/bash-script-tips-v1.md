@@ -6,8 +6,6 @@ title: "Shell脚本开发"
 
 在脚本第一行加一个`#!`行的做法叫做`shebang`或者`hashbang`。
 
-创建一个`xxx.rb`, 第一行写：
-
 ```sh
 #!/usr/bin/env ruby
 ```
@@ -91,19 +89,20 @@ set -o errexit / set -e
 画外音：有些`Linux`命令，例如`rm`的`-f`参数可以强制忽略错误，此时脚本便无法捕捉到`errexit`，这样的参数在脚本里是不推荐使用的。这两个选项，都符合`fail fast`设计理念。
 
 
-使用`$()`代替`(反单引号)
+使用`$()`代替(反单引号)
 
 1. `$()`能够支持内嵌；
 2. `$()`不用转义；
-3. 有些字体，`(反单引号)和’(单引号)很像，容易把人搞晕；
 
 `echo`不是唯一的调试方法，可以用`-n`对脚本进行语法检查；可以用`-v`跟踪脚本里的每个命令的执行；可以用`-x`跟踪脚本里的每个命令的执行，并附加扩充信息。
 
 ### 保证进程后台执行：
 
 ```sh
+# 后台运行脚本
 nohup xxx &
-# get latested process pid
+
+# 在 Shell 脚本中获取进程 ID
 echo $! > pid
 ```
 
@@ -112,7 +111,7 @@ echo $! > pid
 通过`-d "test"`来判断文件夹是否存在：
 
 ```sh
-if [ -d 'test' ] && [ -d "${test}/.git" ]; then
+if [ -d 'test' ]; then
       echo "Git仓库存在"
 else 
       echo "Git仓库不存在"

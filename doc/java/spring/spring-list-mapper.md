@@ -2,6 +2,8 @@
 title: "获取所有的 RequestMapping"
 ---
 
+> 获取所有的 RequestMapping
+
 ```java
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,17 +15,13 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 @Controller
 public class EndpointDocController {
 
-	 private final RequestMappingHandlerMapping handlerMapping;
- 
- @Autowired
- public EndpointDocController(RequestMappingHandlerMapping handlerMapping) {
-		  this.handlerMapping = handlerMapping;
-	 }
-  
- @RequestMapping(value="/endpointdoc", method=RequestMethod.GET)
- public void show(Model model) {
-		  model.addAttribute("handlerMethods", this.handlerMapping.getHandlerMethods());
-	 } 
+	@Autowired
+	private final RequestMappingHandlerMapping handlerMapping;
+	 
+	@RequestMapping(value="/endpointdoc", method=RequestMethod.GET)
+	public void show(Model model) {
+		model.addAttribute("handlerMethods", this.handlerMapping.getHandlerMethods());
+	} 
 
 }
 ```

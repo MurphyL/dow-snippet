@@ -48,7 +48,7 @@ sudo dpkg -i $PKG_NAME
 ```sh
 sudo apt-get remove $PKG_NAME
 
-# 删除软件包喝配置文件
+# 删除软件包和配置文件
 sudo apt-get purge $PKG_NAME
 ```
 

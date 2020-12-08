@@ -52,7 +52,14 @@ const Paragraph = ({ children }) => {
     );
 };
 
+const BlockQuote = ({ children = [] }) => {
+    return (
+        <blockquote>{ children.map(({props}) => props.children) }</blockquote>
+    );
+};
+
 export const markdownOptions = {
+    forceBlock: true,
     overrides: {
         h1: {
             component: H3
@@ -75,9 +82,6 @@ export const markdownOptions = {
         p: {
             component: Paragraph
         },
-        pre: {
-            component: Prepare
-        },
         a: {
             props: {
                 target: '_blank',
@@ -85,8 +89,12 @@ export const markdownOptions = {
                 rel: 'noopener noreferrer'
             }
         },
+        pre: {
+            component: Prepare
+        },
         div: {
             props: {
+                root: 'root',
                 className: 'markdown-to-jsx'
             }
         },
@@ -97,5 +105,8 @@ export const markdownOptions = {
                 cellPadding: 0,
             }
         },
+        blockquote: {
+            component: BlockQuote
+        }
     }
 };

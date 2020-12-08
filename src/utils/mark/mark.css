@@ -1,11 +1,21 @@
-.mark {
+.markdown-to-jsx {
     margin: 15px 10px 15px 12px;
 }
-.mark code {
+
+.markdown-to-jsx code {
     font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
 }
 
-.mark .code-block {
+
+.markdown-to-jsx blockquote {
+	margin: 10px 16px;
+	padding: 10px 20px;
+	border-left: 5px solid #dadada;
+	font-style: italic;
+	letter-spacing: 0.6px;
+}
+
+.markdown-to-jsx .code-block {
 	position: relative;
 	margin: 5px 15px;
 	padding: 0;
@@ -20,7 +30,7 @@
     tab-size: 4;
 }
 
-.mark .code-block::before {
+.markdown-to-jsx .code-block::before {
 	position: absolute;
 	z-index: 1;
 	padding: 3px 5px;
@@ -38,13 +48,20 @@
 	border-bottom-right-radius: 5px;
 }
 
-.mark .paragraph,
-.mark li {
+.markdown-to-jsx .code-block>pre {
+    position: relative;
+    margin: 0;
+    padding: 13px 20px;
+    overflow-x: auto;
+}
+
+.markdown-to-jsx .paragraph,
+.markdown-to-jsx li {
     line-height: 30px;
 }
 
-.mark li>code,
-.mark .paragraph>code {
+.markdown-to-jsx li>code,
+.markdown-to-jsx .paragraph>code {
 	margin: 0 3px;
 	padding: 2px 5px;
 	border: 1px solid #ccc;
@@ -54,26 +71,20 @@
 	background: #f8f8f8;
 }
 
-.mark .code-block pre {
-    position: relative;
-    margin: 0;
-    padding: 13px 20px;
-    overflow-x: auto;
-}
 
-.mark table {
-	margin: 10px 20px;
-    width: calc(100% - 20px * 2);
+
+
+.markdown-to-jsx table {
+	margin: 5px 15px;
+    width: calc(100% - 15px * 2);
     border-top: 1px solid #999;
     border-left: 1px solid #999;
     border-color: #ccc;
 }
 
-.mark table th, 
-.mark table td {
+.markdown-to-jsx table th, 
+.markdown-to-jsx table td {
+	padding: 0 10px;
 	line-height: 30px;
 }
 
-.mark table td {
-	padding: 0 10px;
-}
