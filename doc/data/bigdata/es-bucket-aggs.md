@@ -2,6 +2,8 @@
 title: "ElasticSearch Bucket 聚合"
 ---
 
+## 分桶聚合
+
 ```json
 {
 	"size": 0,

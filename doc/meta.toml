@@ -2,5 +2,4 @@
 java = "Core Java" 
 data = "Data Process" 
 js = "JavaScript" 
-linux = "Linux/Shell"
 devops = "DevOps"

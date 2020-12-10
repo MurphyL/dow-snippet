@@ -77,9 +77,9 @@
 .markdown-to-jsx table {
 	margin: 5px 15px;
     width: calc(100% - 15px * 2);
-    border-top: 1px solid #999;
-    border-left: 1px solid #999;
     border-color: #ccc;
+    border-collapse: collapse;
+    border-radius: 2px;
 }
 
 .markdown-to-jsx table th, 
