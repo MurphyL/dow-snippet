@@ -92,12 +92,6 @@ export const markdownOptions = {
         pre: {
             component: Prepare
         },
-        div: {
-            props: {
-                root: 'root',
-                className: 'markdown-to-jsx'
-            }
-        },
         table: {
             props: {
                 border: 1,
