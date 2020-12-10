@@ -19,10 +19,8 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/murph.json').then((res) => {
-            console.log(res);
-            const { statusText, data } = res;
-            if(statusText === 'OK') {
+        axios.get('/murph.json').then(({ status, data }) => {
+            if(status === 200) {
                 this.setState({ ...data, status: 0 });
             } else {
                 this.setState({ status: 2, message: '调用接口失败' });
