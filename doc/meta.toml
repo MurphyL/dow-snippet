@@ -1,5 +1,6 @@
 [navi]
 java = "Core Java" 
 data = "Data Process" 
-js = "JavaScript" 
 devops = "DevOps"
+js = "JavaScript" 
+

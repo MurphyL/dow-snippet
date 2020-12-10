@@ -1,5 +1,6 @@
 ---
 title: "Debian系发行版包管理"
+icon: "linux"
 ---
 
 ### 软件源管理

@@ -1,5 +1,6 @@
 ---
 title: "生成 SSH 密钥"
+icon: "linux"
 ---
 
 ```sh
