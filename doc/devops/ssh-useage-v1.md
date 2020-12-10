@@ -1,7 +1,10 @@
 ---
-title: "生成 SSH 密钥"
+title: "SSH 使用手记"
 icon: "linux"
+achived: true
 ---
+
+## `生成`SSH`密钥`
 
 ```sh
 # 检查SSH keys是否已存在

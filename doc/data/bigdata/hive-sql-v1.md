@@ -1,5 +1,5 @@
 ---
-title: "Hive SQL"
+title: "Hive SQL 代码片段"
 ---
 
 ## `with`语句

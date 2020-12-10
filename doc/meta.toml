@@ -1,6 +1,7 @@
-[navi]
-java = "Core Java" 
-data = "Data Process" 
+[navi] # 左侧导航
+java = "Core Java"
+data = "Data Process"
 devops = "DevOps"
-js = "JavaScript" 
+js = "JavaScript"
 
+[achive] # 归档配置
