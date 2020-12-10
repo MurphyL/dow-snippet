@@ -128,5 +128,4 @@ yarn-error.log*
 
 
 # murph
-package-lock.json
 public/murph.json
