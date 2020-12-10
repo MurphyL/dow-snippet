@@ -19,7 +19,9 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/murph.json').then(({ statusText, data }) => {
+        axios.get('/murph.json').then((res) => {
+            console.log(res);
+            const { statusText, data } = res;
             if(statusText === 'OK') {
                 this.setState({ ...data, status: 0 });
             } else {
