@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+import { Link } from "react-router-dom";
+
 import './mark.css';
 
 const LANG_TYPES = {
@@ -101,6 +104,9 @@ export const markdownOptions = {
         },
         blockquote: {
             component: BlockQuote
+        },
+        Link: {
+            component: Link,
         }
     }
 };
