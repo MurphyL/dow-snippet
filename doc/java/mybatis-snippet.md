@@ -1,5 +1,6 @@
 ---
 title: "MyBatis 代码片段"
+list: false
 ---
 
 `IF/ELSE`语法糖：

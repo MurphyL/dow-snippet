@@ -84,6 +84,20 @@ class App extends React.Component {
                                     </Fragment>
                                 )
                             }} />
+                            <Route path="/tags" render={ () => {
+                                return (
+                                    <Fragment>
+                                        tags
+                                    </Fragment>
+                                )
+                            } } />
+                            <Route path="/search" render={ () => {
+                                return (
+                                    <Fragment>
+                                        tags
+                                    </Fragment>
+                                )
+                            } } />
                             <Route path="/error/404">
                                 <ASide navi={ navi } />
                                 <E404 message="没找到指定的资源" />

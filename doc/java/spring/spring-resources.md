@@ -1,5 +1,6 @@
 ---
 title: "Spring 加载资源文件"
+list: false
 ---
 
 ## 通过`Path`解析资源

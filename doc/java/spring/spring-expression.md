@@ -1,5 +1,6 @@
 ---
 title: "Spring Expression"
+list: false
 ---
 
 `SpEL`（Spring Expression Language），即`Spring`表达式语言，是比JSP的EL更强大的一种表达式语言。

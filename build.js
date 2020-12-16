@@ -37,7 +37,7 @@ shell.ls(DOC_ROOT).forEach(category => {
         
         const file = `doc/${category}/${item}`;
         const { data, content, path } = matter.read(file);
-        let { title, sort, icon, release } = data;
+        let { title, sort, icon, release, list } = data;
         if(icon) {
             icon = icon.toLowerCase()
         } else {
@@ -52,6 +52,7 @@ shell.ls(DOC_ROOT).forEach(category => {
             sort, 
             path, 
             icon,
+            list,
             release,
             category, 
             content: (content || '').trim()

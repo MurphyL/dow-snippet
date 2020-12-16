@@ -15,11 +15,13 @@ const Navi = ({ items = [], selected = 0 }) => {
     return (
         <nav>
             <ol>
-                { items.map(({ path, title }, index) => (
-                    <li key={index} className={ selected === index ? 'selected' : '' }>
-                        <Link to={ `/${path || 'error/404'}` }>{ title }</Link>
-                    </li>
-                )) }
+                { items.map(({ path, title }, index) => {
+                    return (
+                        <li key={index} className={ selected === index ? 'selected' : '' }>
+                            <Link to={ `/${path || 'error/404'}` }>{ title }</Link>
+                        </li>
+                    );
+                }) }
             </ol>
         </nav>
     );
@@ -47,7 +49,7 @@ const Board = ({ items, getObject }) => {
     const { index, object } = getObject ? getObject(items) : null;
     return object ? (
         <Fragment>
-            <Navi selected={ index } items={ items.map(({ title, path }) => ({ title, path })) }/>
+            <Navi selected={ index } items={ items.filter(({ list }) => list).map(({ title, path }) => ({ title, path })) }/>
             <Post details={ object } />
         </Fragment>
     ) : (

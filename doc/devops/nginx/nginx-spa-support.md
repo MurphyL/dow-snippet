@@ -1,5 +1,6 @@
 ---
 title: Nginx 单页应用配置
+list: true
 ---
 
 ## 首页重定向

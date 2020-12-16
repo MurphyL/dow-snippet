@@ -1,5 +1,6 @@
 ---
 title: "Java 性能分析工具"
+list: true
 ---
 
 ## [JPS - JVM Process Status](https://docs.oracle.com/en/java/javase/15/docs/specs/man/jps.html)

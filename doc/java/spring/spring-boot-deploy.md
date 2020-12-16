@@ -1,5 +1,6 @@
 ---
 title: "Spring Boot 应用发布"
+list: false
 ---
 
 ## 应用的部署：

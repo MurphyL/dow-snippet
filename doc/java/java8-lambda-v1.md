@@ -1,5 +1,6 @@
 ---
 title: Java8 Lambda
+list: false
 ---
 
 `Lambda`表达式，也可称为闭包，它允许把函数作为一个方法的参数。

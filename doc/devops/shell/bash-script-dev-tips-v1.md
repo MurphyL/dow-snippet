@@ -1,6 +1,7 @@
 ---
 title: "Shell 脚本开发笔记"
 icon: "linux"
+list: true
 ---
 
 ## Shebang

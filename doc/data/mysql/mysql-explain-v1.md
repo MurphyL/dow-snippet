@@ -1,5 +1,6 @@
 ---
 title: "MySQL 执行计划详解"
+list: true
 ---
 
 `explain`在性能分析中的使用：

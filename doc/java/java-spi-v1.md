@@ -1,6 +1,6 @@
 ---
 title: "Java SPI 机制"
-release: true
+list: false
 ---
 
 在`src/main/resources/`下建立`/META-INF/services`目录下新增一个接口命名的文件`demo.DemoInterface`的文件，内容是要应用的实现类，每行一个类。

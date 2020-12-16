@@ -1,5 +1,6 @@
 ---
 title: "Java 中使用 HTTPS 的坑"
+list: false
 ---
 
 ## InvalidAlgorithmParameterException - 安全基础类库或者证书错误

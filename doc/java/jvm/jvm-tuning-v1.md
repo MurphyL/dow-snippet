@@ -1,5 +1,6 @@
 ---
 title: "JVM 调优实战"
+list: true
 ---
 
 ## `Java`性能分析方法

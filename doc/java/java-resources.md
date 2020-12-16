@@ -1,5 +1,6 @@
 ---
 title: "Java 常用资源"
+list: true
 ---
 
 ## 常用类库

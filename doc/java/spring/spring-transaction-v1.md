@@ -1,5 +1,6 @@
 ---
 title: "Spring 事务管理"
+list: false
 ---
 
 在`Spring Boot`中，使用事务回滚：在回滚方法上加上@Transactional注解。

@@ -1,5 +1,6 @@
 ---
 title: "获取所有的 RequestMapping"
+list: false
 ---
 
 > 获取所有的 RequestMapping

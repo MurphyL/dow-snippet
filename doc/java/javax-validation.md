@@ -1,5 +1,6 @@
 ---
 title: "Java - Validation API"
+list: false
 ---
 
 All of the annotations used in the example are standard JSR annotations:
