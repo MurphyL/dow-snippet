@@ -14,6 +14,12 @@ docker pull alpine
 docker run --rm -it alpine
 ```
 
+## `docker-compose`
+
+```sh
+docker-compose up -d
+```
+
 ## `Docker` 镜像
 
 ```sh

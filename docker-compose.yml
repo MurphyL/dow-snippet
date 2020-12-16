@@ -1,13 +1,14 @@
 version: '3'
 services:
   front:
-    image: nodejs-run:v0.1
     container_name: dow-snippet-web
-    build: .
+    build:
+      context: ../nodejs-lastest
     ports:
-      - "3000:3000"
+      - "7000:3000"
     volumes:
       - ".:/usr/murph"
+    command: "npm run serve"
 #  backend:
 #    image: nodejs-run:v0.1
 #    container_name: dow-snippet-api
