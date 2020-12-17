@@ -15,6 +15,9 @@ const Navi = ({ items = [], selected = 0 }) => {
     return (
         <nav>
             <ol>
+                <li className={ 'x' }>
+                    <Link to={ `/error/404` }>x</Link>
+                </li>
                 { items.map(({ path, title }, index) => {
                     return (
                         <li key={index} className={ selected === index ? 'selected' : '' }>
