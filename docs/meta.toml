@@ -1,0 +1,21 @@
+[navi] # 左侧导航
+java = "Core Java"
+data = "Data Process"
+devops = "DevOps"
+js = "JavaScript"
+
+[[cates]]
+cate = 'java'
+name = 'Core Java'
+tag= 'Java'
+root = 'java'
+
+[[cates]]
+cate = 'data'
+tag = '数据处理'
+name = 'Data Process'
+
+[[cates]]
+cate = 'devops'
+tag = 'DevOps'
+name = 'DevOps'

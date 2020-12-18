@@ -2,67 +2,54 @@ const fs = require('fs');
 const low = require('lowdb');
 const path = require('path');
 const shell = require('shelljs');
+const lodash = require('lodash');
 const toml = require('@iarna/toml');
 const matter = require('gray-matter');
 const FileSync = require('lowdb/adapters/FileSync');
 
-const DOC_ROOT = './doc';
+const DOC_ROOT = './docs';
 
-const META_FILE = './doc/meta.toml';
-const DEST_FILE = './public/murph.json';
+const META_FILE = './docs/meta.toml';
+const DEST_FILE = './public/docs/meta.json';
 
-shell.rm('-f', DEST_FILE);
-
-const join = cat => path.join(DOC_ROOT, cat);
+shell.rm('-rf', './public/docs');
+shell.mkdir('-p', './public/docs');
 
 const db = low(new FileSync(DEST_FILE));
 
-db.defaults({ docs: [] }).write();
+db.defaults({ }).write();
 
-fs.readFile(META_FILE, (err, content) => {
-    if(err) {
-        return console.error('数据解析失败');
-    }
-    db.set('meta', toml.parse(content.toString())).write();
-});
+const meta = fs.readFileSync(META_FILE).toString();
 
-const docs = [];
+const { cates = [] } = toml.parse(meta);
 
-shell.ls(DOC_ROOT).forEach((category, i) => {
-    if(/\.toml$/.test(category)){
-        return;
-    }
-    shell.ls('-R', [join(category)]).forEach((item, j) => {
-        if(!/\.md/.test(item)) {
-            return;
+const mapping = [];
+const grouped = {};
+
+const merged = cates.map((item) => {
+    const { cate, name, tag } = item;
+    grouped[cate] = [];
+    shell.ls('-R', path.join(DOC_ROOT, cate, '**/*.md')).forEach((filepath) => {
+        shell.mkdir('-p', path.dirname(`./public/${filepath}`));
+        const { data, content } = matter.read(filepath);
+        fs.writeFileSync(`./public/${filepath}`, (content || '').trim());
+        const { title, list, icon, tags = [] } = data;
+        if(list) {
+            grouped[cate].push(mapping.length);
         }
-        const file = `doc/${category}/${item}`;
-        const { data, content, path } = matter.read(file);
-        let { title, icon, list } = data;
-        if(!list) {
-            return;
-        }
-        if(icon) {
-            icon = icon.toLowerCase()
-        } else {
-            if(item.indexOf('/') > 0) {
-                icon = item.substring(item, item.indexOf('/'));
-            } else {
-                icon = category;
-            }
-        }
-        docs.push({
-            title, 
-            path, 
-            icon,
-            list,
-            category, 
+        mapping.push({
+            t: title, 
+            i: icon || cate, 
+            l: list ? 1 : 0,    // list
+            k: [ tag, ...tags ], // keywords
+            u: `/${filepath.replace(/\.md$/, '')}` // url
         });
     });
+    return {
+        c: cate, n: name
+    };
 });
 
-console.log(docs);
-
-db.get('docs').push(...docs).write();
+db.set('x', mapping).set('cl', merged).set('cm', grouped).write();
 
 console.log('数据文件已生成！~');

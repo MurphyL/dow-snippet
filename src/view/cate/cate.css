@@ -1,0 +1,33 @@
+/** 列表 **/
+#app main nav {
+    width: 230px;
+    min-width: 230px;
+}
+
+#app main nav ol {
+    margin: 0;
+    padding-left: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+#app main nav ol li {
+    list-style-type: none;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(98, 146, 158, 0.1);
+    border-left: 5px solid #FDFDFF;
+}
+
+#app main nav ol li.selected {
+    border-left: 5px solid rgba(98, 146, 158, 0.2);
+}
+
+#app main nav ol li a {
+    display: block;
+    padding-left: 8px;
+    width: 90%;
+    text-decoration: none;
+    color: #393D3F;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
