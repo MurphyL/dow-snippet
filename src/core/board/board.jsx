@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import Markdown from 'markdown-to-jsx';
 
-import { markdownOptions } from 'utils/mark/mark';
+import { markdownOptions } from 'utils/mark/mark.jsx';
 
 import { E404 } from 'utils/error/error.jsx';
 
@@ -15,9 +15,6 @@ const Navi = ({ items = [], selected = 0 }) => {
     return (
         <nav>
             <ol>
-                <li className={ 'x' }>
-                    <Link to={ `/error/404` }>x</Link>
-                </li>
                 { items.map(({ path, title }, index) => {
                     return (
                         <li key={index} className={ selected === index ? 'selected' : '' }>
@@ -48,17 +45,21 @@ const Post = ({ details }) => {
     );
 }
 
-const Board = ({ items, getObject }) => {
-    const { index, object } = getObject ? getObject(items) : null;
-    return object ? (
+const Board = ({ items = [], selected }) => {
+    const mapping = {};
+    items.forEach(({ path }, index) => {
+        mapping[path] = index;
+    });
+    const filted = items.filter(({ list }) => list)
+        // .map(({ title, path }) => ({ title, path }))
+    ;
+    console.log(filted, selected);
+    return filted[selected] ? (
         <Fragment>
-            <Navi selected={ index } items={ items.filter(({ list }) => list).map(({ title, path }) => ({ title, path })) }/>
-            <Post details={ object } />
+            <Navi items={ filted.map(({ title, path }) => ({ title, path })) } />
+            <Post details={ filted[selected] } />
         </Fragment>
-    ) : (
-        <E404 message="当前类目暂无代码片段"/>
-    );
-
+    ) : ( <E404 message="当前类目暂无代码片段"/> );
 }
 
 export default Board;

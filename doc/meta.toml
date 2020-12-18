@@ -4,4 +4,21 @@ data = "Data Process"
 devops = "DevOps"
 js = "JavaScript"
 
+[[items]]
+cate = 'java'
+name = 'Core Java'
+
+[[items]]
+cate = 'data'
+name = 'Data Process'
+
+[[items]]
+cate = 'devops'
+name = 'DevOps'
+
+[[items]]
+cate = 'js'
+name = 'JavaScript'
+
+
 [achive] # 归档配置

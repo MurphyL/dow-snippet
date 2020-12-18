@@ -6,19 +6,19 @@ import SimpleIcons from 'utils/icons/icons';
 
 import './aside.css';
 
-const ASide = ({ navi = {} }) => {
+const ASide = ({ navi = [] }) => {
     const { cate } = useParams();
     return (
         <aside>
             <ul label="LABELS">
-                { (Object.keys(navi) || []).map((key, i) => {
+                { (navi || []).map((item, i) => {
                     return (
-                        <li key={ i } className={ (cate === key) ? 'selected' : '' }>
-                            <Link to={ `/cat/${key}` }>
+                        <li key={ i } className={ (cate === item.cate) ? 'selected' : '' }>
+                            <Link to={ `/cat/${item.cate}` }>
                                 <span className="icon">
-                                    <SimpleIcons icon={ key } />
+                                    <SimpleIcons icon={ item.cate } />
                                 </span>
-                                <span className="text">{ navi[key] }</span>
+                                <span className="text">{ item.name }</span>
                             </Link>
                         </li>
                     );

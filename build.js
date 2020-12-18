@@ -11,11 +11,13 @@ const DOC_ROOT = './doc';
 const META_FILE = './doc/meta.toml';
 const DEST_FILE = './public/murph.json';
 
+shell.rm('-f', DEST_FILE);
+
 const join = cat => path.join(DOC_ROOT, cat);
 
 const db = low(new FileSync(DEST_FILE));
 
-db.defaults({ dict: {} }).write();
+db.defaults({ docs: [] }).write();
 
 fs.readFile(META_FILE, (err, content) => {
     if(err) {
@@ -24,20 +26,22 @@ fs.readFile(META_FILE, (err, content) => {
     db.set('meta', toml.parse(content.toString())).write();
 });
 
+const docs = [];
 
-shell.ls(DOC_ROOT).forEach(category => {
+shell.ls(DOC_ROOT).forEach((category, i) => {
     if(/\.toml$/.test(category)){
         return;
     }
-    db.set(`dict.${category}`, []).write();
-    shell.ls('-R', [join(category)]).forEach((item) => {
+    shell.ls('-R', [join(category)]).forEach((item, j) => {
         if(!/\.md/.test(item)) {
             return;
         }
-        
         const file = `doc/${category}/${item}`;
         const { data, content, path } = matter.read(file);
-        let { title, sort, icon, release, list } = data;
+        let { title, icon, list } = data;
+        if(!list) {
+            return;
+        }
         if(icon) {
             icon = icon.toLowerCase()
         } else {
@@ -47,17 +51,18 @@ shell.ls(DOC_ROOT).forEach(category => {
                 icon = category;
             }
         }
-        db.get(`dict.${category}`).push({
+        docs.push({
             title, 
-            sort, 
             path, 
             icon,
             list,
-            release,
             category, 
-            content: (content || '').trim()
-        }).write();
+        });
     });
 });
+
+console.log(docs);
+
+db.get('docs').push(...docs).write();
 
 console.log('数据文件已生成！~');
