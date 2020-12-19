@@ -13,7 +13,7 @@ root = 'java'
 [[cates]]
 cate = 'data'
 tag = '数据处理'
-name = 'Data Process'
+name = '数据处理'
 
 [[cates]]
 cate = 'devops'
