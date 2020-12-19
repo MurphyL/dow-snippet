@@ -1,6 +1,6 @@
 ---
 title: "Shell 脚本开发笔记"
-icon: "linux"
+icon: "curl"
 list: true
 ---
 

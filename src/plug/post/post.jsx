@@ -6,7 +6,9 @@ import Markdown from 'markdown-to-jsx';
 
 import { markdownOptions } from 'utils/mark/mark.jsx';
 
-import SimpleIcons from 'utils/icons';
+import SimpleIcons from 'utils/icons.jsx';
+
+import Loading from 'utils/loading/loading.jsx';
 
 import './post.css';
 
@@ -26,7 +28,9 @@ const Post = ({ details }) => {
     }
     if(null == post) {
         return (
-            <article>数据加载中……</article>
+            <article>
+                <Loading />
+            </article>
         );
     }
     return (
