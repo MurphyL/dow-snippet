@@ -1,4 +1,4 @@
-#app main article .error {
+#app .error-container .error {
     margin: 10px;
     padding: 10px 15px;
     border: 1px solid #cfcfcf;

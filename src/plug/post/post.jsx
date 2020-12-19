@@ -8,7 +8,10 @@ import { markdownOptions } from 'utils/mark/mark.jsx';
 
 import SimpleIcons from 'utils/icons.jsx';
 
+import { E404 } from 'utils/error/error.jsx';
+
 import Loading from 'utils/loading/loading.jsx';
+
 
 import './post.css';
 
@@ -24,7 +27,11 @@ const Post = ({ details }) => {
         }
     }, [ details ]);
     if(!details) {
-        return ( <article>404</article> );
+        return ( 
+            <article>
+                <E404 message="指定文章不存在" />
+            </article> 
+        );
     }
     if(null == post) {
         return (
