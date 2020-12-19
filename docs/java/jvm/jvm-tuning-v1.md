@@ -9,12 +9,13 @@ list: true
 
 ## `Java` 调试工具
 
-- jps
-- jstack
-- jinfo
-- jmap
-- jstat
-- jdb
+- jcmd：打印一个 Java 进程的类，线程以及虚拟机信息。适合用在脚本中。使用 jcmd – h 来查看使用方法。
+- jconsole：提供 JVM 活动的图形化展示，包括线程使用，类使用以及垃圾回收（GC）信息。
+- jhat：帮助分析内存堆存储。
+- jmap：提供 JVM 内存使用信息，适用于脚本中。
+- jinfo：访问 JVM 系统属性，同时可以动态修改这些属性。
+- jstack：提供 Java 进程内的线程堆栈信息。
+- jstat：提供 Java 垃圾回收以及类加载信息。
 
 ## `Java` 应用诊断工具
 

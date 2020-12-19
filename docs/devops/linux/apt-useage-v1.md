@@ -63,7 +63,11 @@ sudo apt-get purge $PKG_NAME
 1. `apt install ca-certificates`；
 1. 可以切换到`https`版本的`apt`配置了。
 
-### 参考资料
+## 相关文档
+
+- <Link to="/docs/devops/linux/alpine-tips-v1">Alpine Linux 初始化</Link>
+
+## 参考资料
 
 - [阿里云官方镜像站](https://developer.aliyun.com/mirror/)
 - [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)

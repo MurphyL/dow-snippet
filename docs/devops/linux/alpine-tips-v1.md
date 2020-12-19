@@ -3,7 +3,7 @@ title: "Alpine Linux 初始化"
 icon: "linux"
 ---
 
-> 用以构建`Docker`镜像的最佳选择：小巧、安全、简单。
+> 用以构建 `Docker` 镜像的最佳选择：小巧、安全、简单。
 
 ## 修改软件源
 

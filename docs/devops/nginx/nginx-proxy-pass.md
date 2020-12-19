@@ -2,7 +2,7 @@
 title: "Nginx 通过域名转发请求"
 ---
 
-### `HTTP`请求头
+### `HTTP` 反向代理
 
 ```cnf
 server {

@@ -4,8 +4,13 @@ icon: 'git'
 list: true
 ---
 
+## 日志
 
-## Git 命令行工具
+```
+git log --graph
+```
+
+## 其他有用的命令
 
 ```sh
 # 统计代码行数
@@ -14,4 +19,4 @@ git diff --shortstat '@{1 day ago}'
 
 ## 参考资料
 
-- <Link to="ssh-useage-v1.md">生成 SSH 密钥</Link>
+- <Link to="/docs/devops/ssh-useage-v1">生成 SSH 密钥</Link>
