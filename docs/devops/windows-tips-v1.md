@@ -1,5 +1,6 @@
 ---
 title: "Windows 使用手记"
+icon: 'windows'
 ---
 
 ## 常用工具软件
