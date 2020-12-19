@@ -1,5 +1,6 @@
 ---
 title: "MySQL 执行计划详解"
+icon: 'mysql'
 list: true
 ---
 

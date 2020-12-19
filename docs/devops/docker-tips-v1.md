@@ -19,7 +19,7 @@ docker run --rm -it alpine
 docker-compose up -d
 ```
 
-## `Docker` 镜像
+## `Docker Hub` 镜像
 
 ```sh
 https://registry.docker-cn.com

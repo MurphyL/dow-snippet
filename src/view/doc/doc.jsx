@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useParams, useLocation } from "react-router-dom";
 
-import PostsContext from 'utils/context.js';
+import PostsContext from 'utils/context.jsx';
 
 import Navi from 'plug/navi/navi.jsx';
 import Post from 'plug/post/post.jsx';

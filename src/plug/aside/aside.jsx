@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 
-import SimpleIcons from 'utils/icons/icons';
+import SimpleIcons from 'utils/icons';
 
 import './aside.css';
 

@@ -11,7 +11,7 @@ import ASide from 'plug/aside/aside.jsx';
 import Category from 'view/cate/cate.jsx';
 import Document from 'view/doc/doc.jsx';
 
-import PostsContext from 'utils/context.js';
+import PostsContext from 'utils/context.jsx';
 
 const App = () => {
     const [ fetched, setData ] = useState(null);

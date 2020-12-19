@@ -6,7 +6,7 @@ import Markdown from 'markdown-to-jsx';
 
 import { markdownOptions } from 'utils/mark/mark.jsx';
 
-import SimpleIcons from 'utils/icons/icons';
+import SimpleIcons from 'utils/icons';
 
 import './post.css';
 

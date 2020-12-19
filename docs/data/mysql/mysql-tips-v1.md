@@ -1,5 +1,6 @@
 ---
 title: "MySQL 使用笔记"
+icon: 'mysql'
 ---
 
 ## MySQL JOIN 时会跳过`null`数据
