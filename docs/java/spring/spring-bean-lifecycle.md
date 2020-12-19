@@ -13,12 +13,12 @@ public class AnnotationBean {
     private final static Logger LOGGER = LoggerFactory.getLogger(AnnotationBean.class);
 
     @PostConstruct
-    public void start(){
+    public void start() {
         LOGGER.info("AnnotationBean start");
     }
 
     @PreDestroy
-    public void destroy(){
+    public void destroy() {
         LOGGER.info("AnnotationBean destroy");
     }
 
@@ -57,24 +57,22 @@ public class SpringLifeCycleService implements InitializingBean,DisposableBean{
 public class LifeCycleConfig {
 
     @Bean(initMethod = "start", destroyMethod = "destroy")
-    public SpringLifeCycle create(){
-        SpringLifeCycle springLifeCycle = new SpringLifeCycle() ;
-
-        return springLifeCycle ;
+    public SpringLifeCycle create() {
+        return new SpringLifeCycle();
     }
 
 }
 
-public class SpringLifeCycle{
+public class SpringLifeCycle {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SpringLifeCycle.class);
 
-    public void start(){
+    public void start() {
         LOGGER.info("SpringLifeCycle start");
     }
 
 
-    public void destroy(){
+    public void destroy() {
         LOGGER.info("SpringLifeCycle destroy");
     }
 
@@ -84,7 +82,8 @@ public class SpringLifeCycle{
 以上是在`Spring Boot`中可以这样配置，如果是原始的基于`XML`也是可以使用：
 
 ```xml
-<bean class="com.crossoverjie.spring.SpringLifeCycle" init-method="start" destroy-method="destroy" />
+<bean class="com.crossoverjie.spring.SpringLifeCycle" 
+    init-method="start" destroy-method="destroy" />
 ```
 
 ## `BeanPostProcessor`增强处理器
@@ -106,8 +105,8 @@ public class SpringLifeCycleProcessor implements BeanPostProcessor {
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if ("annotationBean".equals(beanName)){
-            LOGGER.info("SpringLifeCycleProcessor start beanName={}",beanName);
+        if ("annotationBean".equals(beanName)) {
+            LOGGER.info("SpringLifeCycleProcessor start beanName={}", beanName);
         }
         return bean;
     }
@@ -121,8 +120,8 @@ public class SpringLifeCycleProcessor implements BeanPostProcessor {
      */
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if ("annotationBean".equals(beanName)){
-            LOGGER.info("SpringLifeCycleProcessor end beanName={}",beanName);
+        if ("annotationBean".equals(beanName)) {
+            LOGGER.info("SpringLifeCycleProcessor end beanName={}", beanName);
         }
         return bean;
     }

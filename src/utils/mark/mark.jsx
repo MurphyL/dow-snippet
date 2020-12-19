@@ -7,6 +7,7 @@ import './mark.css';
 
 const LANG_TYPES = {
     'lang-awk': 'Awk',
+    'lang-xml': 'XML',
     'lang-sh': 'Shell',
     'lang-yml': 'YAML',
     'lang-yaml': 'YAML',

@@ -25,7 +25,9 @@ const Post = ({ details }) => {
         return ( <article>404</article> );
     }
     if(null == post) {
-        return '数据加载中……';
+        return (
+            <article>数据加载中……</article>
+        );
     }
     return (
         <article>
