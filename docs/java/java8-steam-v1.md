@@ -42,3 +42,8 @@ java.util.function 它包含了很多类，用来支持 Java的 函数式编程�
 | Function	| 接受一个输入参数，返回一个结果。 | 将一个结果转换为另外一个 |
 | Predicate	| 接受一个输入参数，返回一个布尔值结果。 | 断言，校验参数 |
 | Supplier	| 无参数，返回一个结果。 | 供应商，获取一个结果 |
+
+
+## 参考资料
+
+- [Java 8 - 函数编程（Lambda表达式）](https://www.pdai.tech/md/java/java8/java8-stream.html)

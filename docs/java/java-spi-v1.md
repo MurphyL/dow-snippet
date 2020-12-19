@@ -20,3 +20,7 @@ for (DemoInterface: di) {
     di.callMethod();  // 方法调用
 }
 ```
+
+## 参考资料
+
+- [Java常用机制 - SPI机制](https://www.pdai.tech/md/java/advanced/java-advanced-spi.html)

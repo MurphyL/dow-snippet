@@ -40,7 +40,6 @@ const merged = cates.map((item) => {
         mapping.push({
             t: title, 
             i: icon || cate, 
-            l: list ? 1 : 0,    // list
             k: [ tag, ...tags ], // keywords
             u: `/${filepath.replace(/\.md$/, '')}` // url
         });

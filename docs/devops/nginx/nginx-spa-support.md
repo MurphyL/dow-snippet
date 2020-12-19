@@ -1,6 +1,7 @@
 ---
-title: Nginx 单页应用配置
+title: 'Nginx 单页应用配置'
 list: true
+icon: 'nginx'
 ---
 
 ## 首页重定向

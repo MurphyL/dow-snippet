@@ -42,7 +42,7 @@ const App = () => {
                         <ASide navi={ cl } />
                         <Switch>
                             <Route path="/" exact>
-                                <Redirect to={{ pathname: `/cat/${cl[0].c}`, state: { ci: 0 } }} />
+                                <Redirect to={`/cate/${cl[0].c}`} />
                             </Route>
                             <Route path="/cate/:cate" component={ Category } />
                             <Route path={[ '/docs/:cate/:tag/:post', '/docs/:cate/:post' ]} component={ Document } />

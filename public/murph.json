@@ -1,0 +1,133 @@
+{
+  "docs": [],
+  "mapping": {
+    "/doc/java/async-computation.md": {
+      "cate": "java",
+      "index": 0
+    },
+    "/doc/java/java-https-hell-v1.md": {
+      "cate": "java",
+      "index": 1
+    },
+    "/doc/java/java-list-classes-v1.md": {
+      "cate": "java",
+      "index": 2
+    },
+    "/doc/java/java-resources.md": {
+      "cate": "java",
+      "index": 3
+    },
+    "/doc/java/java-spi-v1.md": {
+      "cate": "java",
+      "index": 4
+    },
+    "/doc/java/java8-lambda-v1.md": {
+      "cate": "java",
+      "index": 5
+    },
+    "/doc/java/javax-validation.md": {
+      "cate": "java",
+      "index": 6
+    },
+    "/doc/java/jdk/jdk-pref-tools.md": {
+      "cate": "java",
+      "index": 7
+    },
+    "/doc/java/juc/juc.md": {
+      "cate": "java",
+      "index": 8
+    },
+    "/doc/java/jvm/jvm-tuning-v1.md": {
+      "cate": "java",
+      "index": 9
+    },
+    "/doc/java/orm/mybatis-config.md": {
+      "cate": "java",
+      "index": 10
+    },
+    "/doc/java/orm/mybatis-snippet.md": {
+      "cate": "java",
+      "index": 11
+    },
+    "/doc/java/runtime-load-jar-v1.md": {
+      "cate": "java",
+      "index": 12
+    },
+    "/doc/java/spring/spring-boot-deploy.md": {
+      "cate": "java",
+      "index": 13
+    },
+    "/doc/java/spring/spring-boot-dubbo.md": {
+      "cate": "java",
+      "index": 14
+    },
+    "/doc/java/spring/spring-expression.md": {
+      "cate": "java",
+      "index": 15
+    },
+    "/doc/java/spring/spring-list-mapper.md": {
+      "cate": "java",
+      "index": 16
+    },
+    "/doc/java/spring/spring-resources.md": {
+      "cate": "java",
+      "index": 17
+    },
+    "/doc/java/spring/spring-transaction-v1.md": {
+      "cate": "java",
+      "index": 18
+    },
+    "/doc/data/bigdata/es-bucket-aggs.md": {
+      "cate": "data",
+      "index": 0
+    },
+    "/doc/data/bigdata/hive-sql-v1.md": {
+      "cate": "data",
+      "index": 1
+    },
+    "/doc/data/mysql/mysql-explain-v1.md": {
+      "cate": "data",
+      "index": 2
+    },
+    "/doc/data/mysql/mysql-tips-v1.md": {
+      "cate": "data",
+      "index": 3
+    },
+    "/doc/data/window-functions-v1.md": {
+      "cate": "data",
+      "index": 4
+    },
+    "/doc/devops/docker-tips-v1.md": {
+      "cate": "devops",
+      "index": 0
+    },
+    "/doc/devops/git-useage-v1.md": {
+      "cate": "devops",
+      "index": 1
+    },
+    "/doc/devops/linux/alpine-tips-v1.md": {
+      "cate": "devops",
+      "index": 2
+    },
+    "/doc/devops/linux/apt-useage-v1.md": {
+      "cate": "devops",
+      "index": 3
+    },
+    "/doc/devops/nginx/nginx-proxy-pass.md": {
+      "cate": "devops",
+      "index": 4
+    },
+    "/doc/devops/nginx/nginx-spa-support.md": {
+      "cate": "devops",
+      "index": 5
+    },
+    "/doc/devops/shell/bash-script-dev-tips-v1.md": {
+      "cate": "devops",
+      "index": 6
+    },
+    "/doc/devops/ssh-useage-v1.md": {
+      "cate": "devops",
+      "index": 7
+    }
+  }
+}
