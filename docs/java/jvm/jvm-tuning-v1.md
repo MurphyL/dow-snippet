@@ -3,11 +3,11 @@ title: "JVM 调优实战"
 list: true
 ---
 
-## `Java`性能分析方法
+## `Java` 性能分析方法
 
 围绕`Java`性能优化，有两种最基本的分析方法：现场分析法和事后分析法。
 
-## `Java`调试工具
+## `Java` 调试工具
 
 - jps
 - jstack
@@ -16,7 +16,7 @@ list: true
 - jstat
 - jdb
 
-## `Java`应用诊断工具
+## `Java` 应用诊断工具
 
 - JConsole
 - JVisualVM
