@@ -12,9 +12,9 @@ list: true
 
 ## 工具类
 
-- `org.springframework.util.PropertyPlaceholderHelper`：用于处理占位符的替换；
-- `org.apache.commons.lang3.time.StopWatch`：用于记录执行时间的工具类
-- `com.google.common.collect.RangeMap`：
+- `PropertyPlaceholderHelper`：用于处理占位符的替换；
+- `StopWatch`：用于记录执行时间的工具类
+- `RangeMap`：
 
 ## 其他工具库
 

@@ -11,6 +11,7 @@ body {
     font-variant: tabular-nums;
     font-feature-settings: "tnum","tnum";
     font-size: 14px;
+    color: rgba(0,0,0,.85);
 }
 
 /** 滚动条 **/
@@ -33,18 +34,23 @@ body {
     border: 1px solid  rgba(192, 192, 192, 1);
 }
 
-#app main {
+#app {
     display: flex;
 }
 
-#app main,
-#app main aside,
-#app main nav,
+#app,
+#app aside,
+#app nav,
 #app main article {
     height: 100%;
 }
 
 #app main aside,
-#app main nav {
+#app nav {
     user-select: none;
+}
+
+
+#app .hide {
+    display: none;
 }

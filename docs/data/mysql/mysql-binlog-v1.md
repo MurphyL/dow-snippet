@@ -18,7 +18,7 @@ mysqlbinlog mysql-bin.0000xx | mysql -u $USERNAME -p $PASSWORD $DATABASE
 --stop-position=1437                        # 结束pos点
 --start-datetime="2013-11-29 13:18:54"      # 起始时间点
 --stop-datetime="2013-11-29 13:21:53"       # 结束时间点
---database=$DATABASE                        # 指定只恢复zyyshop数据库(只限本地log日志)
+--database=$DATABASE                        # 只恢复指定数据库(只限本地log日志)
 ```
 
 不常用选项：

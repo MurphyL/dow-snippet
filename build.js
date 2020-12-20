@@ -24,18 +24,19 @@ const meta = fs.readFileSync(META_FILE).toString();
 const { cates = [] } = toml.parse(meta);
 
 const mapping = [];
-const grouped = {};
 
-const merged = cates.map((item) => {
+const mx = {};
+
+cates.forEach((item) => {
     const { cate, name, tag } = item;
-    grouped[cate] = [];
+    const items = [];
     shell.ls('-R', path.join(DOC_ROOT, cate, '**/*.md')).forEach((filepath) => {
         shell.mkdir('-p', path.dirname(`./public/${filepath}`));
         const { data, content } = matter.read(filepath);
         fs.writeFileSync(`./public/${filepath}`, (content || '').trim());
         const { title, list, icon, tags = [] } = data;
         if(list) {
-            grouped[cate].push(mapping.length);
+            items.push(mapping.length);
         }
         mapping.push({
             t: title, 
@@ -44,11 +45,9 @@ const merged = cates.map((item) => {
             u: `/${filepath.replace(/\.md$/, '')}` // url
         });
     });
-    return {
-        c: cate, n: name
-    };
+    mx[cate] = { n: name, l: items };
 });
 
-db.set('x', mapping).set('cl', merged).set('cm', grouped).write();
+db.set('x', mapping).set('m', mx).write();
 
 console.log('数据文件已生成！~');

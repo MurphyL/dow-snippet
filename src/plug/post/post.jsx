@@ -12,10 +12,9 @@ import { E404 } from 'utils/error/error.jsx';
 
 import Loading from 'utils/loading/loading.jsx';
 
-
 import './post.css';
 
-const Post = ({ details }) => {
+const Post = ({ details, toggleNavi }) => {
     const [ post, setPostInfo ] = useState(null);
     useEffect(() => {
         if(details) {
@@ -42,12 +41,19 @@ const Post = ({ details }) => {
     }
     return (
         <article>
-            <section className="header">
-                <span className="icon">
-                    <SimpleIcons icon={ details.i || 'dunked' } />
-                </span>
-                <span className="text">{ details.t }</span>
-            </section>
+            <div className="header">
+                <div className="label">
+                    <span className="icon">
+                        <SimpleIcons icon={ details.i || 'dunked' } />
+                    </span>
+                    <span className="text">{ details.t }</span>
+                </div>
+                <div className="operations">
+                    <span onClick={ toggleNavi }>
+                        <SimpleIcons icon="windows" />
+                    </span>
+                </div>
+            </div>
             <section className="board">
                 <div className="markdown-to-jsx">
                     <Markdown children={ post.content || '' } options={ markdownOptions } />

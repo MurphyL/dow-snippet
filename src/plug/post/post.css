@@ -1,6 +1,6 @@
 
 /** 文章 **/
-#app main article {
+#app article {
     flex: 1;
     margin: 0;
     overflow-x: auto;
@@ -8,8 +8,9 @@
     border-left: 1px solid #ccc;
 }
 
-#app main article .header {
+#app article .header {
     position: relative;
+    display: flex;
     padding-left: 10px;
     border-bottom: 1px solid rgba(98, 146, 158, 0.2);
     height: 40px;
@@ -18,33 +19,49 @@
     user-select: none;
 }
 
-#app main article .header .icon {
+#app article .header .label {
+    flex: 1;
+}
+
+#app article .header .operations {
+    padding: 0 10px;
+}
+
+#app article .header .operations svg {
+    width: 20px;
+    height: 20px;
+    line-height: 100%;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#app article .header .label .icon {
     display: inline-block;
     vertical-align: middle;
     line-height: 40px;
     width: 20px;
 }
 
-#app main article .header .icon svg {
+#app article .header .label .icon svg {
     height: 20px;
 }
 
-#app main article .header .text {
+#app article .header .label .text {
     margin: 0 0 0 5px;
     font-size: 16px;
 }
 
-#app main article .header .text::before {
+#app article .header .label .text::before {
     margin-right: 5px;
     opacity: 0.3;
     font-size: 12px;
 }
 
-#app main article .header .text:hover::before {
+#app article .header .label .text:hover::before {
     opacity: 0.6;
 }
 
-#app main article .board {
+#app article .board {
     margin-bottom: 10px;
     width: 100%;
     max-width: 100%;
@@ -52,6 +69,6 @@
     overflow-y: auto;
 }
 
-#app main article .board .markdown-to-jsx {
+#app article .board .markdown-to-jsx {
     padding-bottom: 20px;
 }

@@ -1,22 +1,24 @@
-import React, { Fragment } from 'react';
-import { useParams, useLocation } from "react-router-dom";
+import React, { Fragment, useState } from 'react';
+import { useLocation, useParams } from "react-router-dom";
 
 import PostsContext from 'utils/context.jsx';
 
-import Navi from 'plug/navi/navi.jsx';
 import Post from 'plug/post/post.jsx';
+
+import ASide from 'plug/aside/aside.jsx';
 
 import './doc.css';
 
 const Document = () => {
     const { cate } = useParams();
     const { pathname } = useLocation();
+    const [ showNavi, toggleNavi ] = useState(false);
     return (
         <PostsContext.Consumer>
-            {({ items = [], mapping ={} }) => (
+            {({ items = [], mapping = {} }) => (
                 <Fragment >
-                    <Navi select={ ({ url }) => (url === pathname) } items={ (mapping[cate].map(i => items[i]) || []) }/>
-                    <Post details={ items.find(({ u }) => u === pathname) } />
+                    <ASide show={ showNavi } cate={ cate } mapping={ mapping } getObject={ i => items[i] } />
+                    <Post details={ items.find(({ u }) => u === pathname) } toggleNavi={ () => toggleNavi(!showNavi) } />
                 </Fragment>
             )}
         </PostsContext.Consumer>
