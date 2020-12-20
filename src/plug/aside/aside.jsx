@@ -17,13 +17,11 @@ const ASide = ({ show, cate, mapping = {}, getObject }) => {
             <aside className={ show ? 'show' : 'hide' }>
                 <ul className="labels" label="LABELS">
                     { Object.keys(mapping).map((cn, i) => (
-                        <li key={ i } className={ cn === cate ? 'selected' : '' }>
-                            <div onClick={ () => changeCate(cn) }>
-                                <span className="icon">
-                                    <SimpleIcons icon={ cn } />
-                                </span>
-                                <span className="text">{ mapping[cn].n }</span>
-                            </div>
+                        <li key={ i } className={ cn === cate ? 'selected' : '' }  onClick={ () => changeCate(cn) }>
+                            <span className="icon">
+                                <SimpleIcons icon={ cn } />
+                            </span>
+                            <span className="text">{ mapping[cn].n }</span>
                         </li>
                     )) }
                 </ul>

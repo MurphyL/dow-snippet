@@ -3,7 +3,7 @@ html, body, #app {
     padding: 0;
     height: 100%;
     border: none;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 body {
@@ -36,16 +36,17 @@ body {
 
 #app {
     display: flex;
+    min-width: 450px;
+    overflow-x: auto;
 }
 
-#app,
 #app aside,
 #app nav,
-#app main article {
+#app article {
     height: 100%;
 }
 
-#app main aside,
+#app aside,
 #app nav {
     user-select: none;
 }
