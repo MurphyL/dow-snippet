@@ -11,7 +11,7 @@ import Document from 'view/doc/doc.jsx';
 import PostsContext from 'utils/context.jsx';
 
 const App = () => {
-    const [ fetched, setData ] = useState(null);
+    const [ fetched, setData ] = useState({ status: 1 });
     useEffect(() => {
         axios.get('/docs/meta.json').then(({ status, data }) => {
             if(status === 200) {
@@ -23,12 +23,12 @@ const App = () => {
             setData({ status: 2, message: '请求数据出错' });
         });
     }, []);
-    if(null === fetched) {
+    if(fetched.status === 1) {
         return (
             <Loading message="数据加载中……" />
         );
     } else if(fetched.status === 2) {
-        return `数据加载失败：${this.state.message}`
+        return `数据加载失败：${fetched.message}`
     }
     const { x = [], m = {}} = fetched;
     return (

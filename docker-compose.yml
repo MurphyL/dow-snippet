@@ -9,12 +9,3 @@ services:
     volumes:
       - ".:/usr/murph"
     command: "npm run serve"
-#  backend:
-#    image: nodejs-run:v0.1
-#    container_name: dow-snippet-api
-#    build: .
-#    ports:
-#      - "5000:5000"
-#    volumes:
-#      - ".:/usr/murph"
-#    command: "api"
