@@ -15,12 +15,15 @@ const Document = () => {
     const [ showNavi, toggleNavi ] = useState(document.body.clientWidth > 600);
     return (
         <PostsContext.Consumer>
-            {({ items = [], mapping = {} }) => (
-                <Fragment >
-                    <ASide show={ showNavi } cate={ cate } mapping={ mapping } getObject={ i => items[i] } />
-                    <Post details={ items.find(({ u }) => u === pathname) } toggleNavi={ () => toggleNavi(!showNavi) } />
-                </Fragment>
-            )}
+            {({ items = [], mapping = {} }) => {
+                const details = items.find(({ u }) => u === pathname);
+                return (
+                    <Fragment >
+                        <ASide show={ showNavi } cate={ cate } mapping={ mapping } getObject={ i => items[i] } />
+                        <Post details={ details } toggleNavi={ () => toggleNavi(!showNavi) }/>
+                    </Fragment>
+                );
+            }}
         </PostsContext.Consumer>
     );
 }

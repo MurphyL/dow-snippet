@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const Loading = ({ message }) => {
     return (
@@ -7,5 +7,20 @@ const Loading = ({ message }) => {
         </div>
     );
 };
+
+export const Loadable = ({ status, message, error, children }) => (
+    <Fragment>
+        { (() => {
+            switch(status) {
+                case 0:
+                    return children;
+                case 2:
+                    return 'error';
+                default:
+                    return ( <Loading message={ message } /> )
+            }
+        })() }
+    </Fragment>
+);
 
 export default Loading;

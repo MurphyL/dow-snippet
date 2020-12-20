@@ -4,61 +4,48 @@ import axios from 'axios';
 
 import Markdown from 'markdown-to-jsx';
 
-import { markdownOptions } from 'utils/mark/mark.jsx';
-
 import SimpleIcons from 'utils/icons.jsx';
 
-import { E404 } from 'utils/error/error.jsx';
+import { markdownOptions } from 'utils/mark/mark.jsx';
 
-import Loading from 'utils/loading/loading.jsx';
+import { Loadable } from 'utils/loading/loading.jsx';
 
 import './post.css';
 
-const Post = ({ details, toggleNavi }) => {
-    const [ post, setPostInfo ] = useState(null);
+const Post = ({ details = {} }) => {
+    const [ post, setPostInfo ] = useState({ status: 1 });
     useEffect(() => {
-        if(details) {
-            axios.get(`${details.u}.md`).then(({ status, data }) => {
-                if(status === 200) {
-                    setPostInfo({ content: data });
-                }
+        axios.get(`${details.u}.md`).then(({ status, data }) => {
+            setPostInfo({
+                 ...(status === 200 ? { status: 0 } : { status: 2, message: '请求数据失败' }), 
+                 content: data 
             });
-        }
+        }).catch(() => {
+            setPostInfo({ status: 2, message: '调用接口失败' });
+        });
     }, [ details ]);
-    if(!details) {
-        return ( 
-            <article>
-                <E404 message="指定文章不存在" />
-            </article> 
-        );
-    }
-    if(null == post) {
-        return (
-            <article>
-                <Loading />
-            </article>
-        );
-    }
     return (
         <article>
-            <div className="header">
-                <div className="label">
-                    <span className="icon">
-                        <SimpleIcons icon={ details.i || 'dunked' } />
-                    </span>
-                    <span className="text">{ details.t }</span>
-                </div>
-                <div className="operations">
-                    <span onClick={ toggleNavi }>
-                        <SimpleIcons icon="menu" />
-                    </span>
-                </div>
-            </div>
-            <section className="board">
-                <div className="markdown-to-jsx">
-                    <Markdown children={ post.content || '' } options={ markdownOptions } />
-                </div>
-            </section>
+            <Loadable status={ post.status } message="数据加载中……">
+                <header className="header">
+                    <div className="label">
+                        <span className="icon">
+                            <SimpleIcons icon={ details.i || 'dunked' } />
+                        </span>
+                        <span className="text">{ details.t }</span>
+                    </div>
+                    <div className="operations">
+                        <span onClick={ () => {} }>
+                            <SimpleIcons icon="menu" />
+                        </span>
+                    </div>
+                </header>
+                <section className="board">
+                    <div className="markdown-to-jsx">
+                        <Markdown children={ post.content || '' } options={ markdownOptions } />
+                    </div>
+                </section>
+            </Loadable>
         </article>
     );
 }
