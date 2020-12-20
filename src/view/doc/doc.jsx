@@ -12,7 +12,7 @@ import './doc.css';
 const Document = () => {
     const { cate } = useParams();
     const { pathname } = useLocation();
-    const [ showNavi, toggleNavi ] = useState(false);
+    const [ showNavi, toggleNavi ] = useState(document.body.clientWidth > 600);
     return (
         <PostsContext.Consumer>
             {({ items = [], mapping = {} }) => (
