@@ -2,6 +2,33 @@
     margin: 15px 13px 15px 12px;
 }
 
+.markdown-to-jsx .title>span {
+	position: relative;
+}
+
+.markdown-to-jsx .title>span:hover:before {
+    width: calc(100% + 10px);
+}
+.markdown-to-jsx .title>span:before {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #dcdcdc;
+    transition: all .3s;
+}
+
+.markdown-to-jsx .title>span:hover:after {
+    position: absolute;
+	top: -5px;
+    right: -20px;
+    font-size: 10px;
+    color: #dcdcdc;
+	content: attr(type) "";
+}
+
 .markdown-to-jsx code {
     font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
 }
@@ -70,20 +97,35 @@
 	background: #f8f8f8;
 }
 
-
-
-
 .markdown-to-jsx table {
 	margin: 5px 15px;
     width: calc(100% - 15px * 2);
-    border-color: #ccc;
-    border-collapse: collapse;
-    border-radius: 2px;
+	border-top: 1.5px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
 .markdown-to-jsx table th, 
 .markdown-to-jsx table td {
 	padding: 0 10px;
-	line-height: 30px;
+	line-height: 35px;
 }
 
+.markdown-to-jsx table tbody tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+.markdown-to-jsx table tbody tr:nth-child(even) {
+	background-color: #fcfcfc;
+}
+
+.markdown-to-jsx table tbody tr:nth-child(odd) td {
+	border-right: 1px solid #fcfcfc;
+}
+
+.markdown-to-jsx table tbody tr:nth-child(even) td {
+	border-right: 1px solid #f2f2f2;
+}
+
+.markdown-to-jsx table tbody tr td:last-child {
+	border-right: none;
+}

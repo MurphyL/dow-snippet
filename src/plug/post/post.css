@@ -27,12 +27,16 @@
     padding: 0 10px;
 }
 
+#app article .header .operations span {
+    padding: 0 5px;
+    cursor: pointer;
+}
+
 #app article .header .operations svg {
     width: 16px;
     height: 16px;
     line-height: 100%;
     vertical-align: middle;
-    cursor: pointer;
 }
 
 #app article .header .label .icon {

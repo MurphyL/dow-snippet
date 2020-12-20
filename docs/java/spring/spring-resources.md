@@ -21,4 +21,4 @@ new ClassPathResource("config.yml");
 | classpath:  | classpath:config.yml | Loaded from the classpath. |
 | file:  | file:config.yml | Loaded as a URL, from the filesystem. |
 | http: | http://murphyl.com/demo.txt | Loaded as a URL. |
-| (none)  | /data/config.xml |  |
+| none  | /data/config.xml |  |
