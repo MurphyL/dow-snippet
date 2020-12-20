@@ -50,7 +50,7 @@ const Post = ({ details, toggleNavi }) => {
                 </div>
                 <div className="operations">
                     <span onClick={ toggleNavi }>
-                        <SimpleIcons icon="list" />
+                        <SimpleIcons icon="menu" />
                     </span>
                 </div>
             </div>
