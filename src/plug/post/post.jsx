@@ -12,7 +12,7 @@ import { Loadable } from 'utils/loading/loading.jsx';
 
 import './post.css';
 
-const Post = ({ details = {} }) => {
+const Post = ({ details = {}, toggleNavi }) => {
     const [ post, setPostInfo ] = useState({ status: 1 });
     useEffect(() => {
         axios.get(`${details.u}.md`).then(({ status, data }) => {
@@ -35,7 +35,7 @@ const Post = ({ details = {} }) => {
                         <span className="text">{ details.t }</span>
                     </div>
                     <div className="operations">
-                        <span onClick={ () => {} }>
+                        <span onClick={ toggleNavi }>
                             <SimpleIcons icon="menu" />
                         </span>
                     </div>
