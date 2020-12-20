@@ -21,7 +21,7 @@ db.defaults({ }).write();
 
 const meta = fs.readFileSync(META_FILE).toString();
 
-const { cates = [] } = toml.parse(meta);
+const { cates = [], icons = [] } = toml.parse(meta);
 
 const mapping = [];
 
