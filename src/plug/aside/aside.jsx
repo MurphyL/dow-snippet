@@ -36,7 +36,7 @@ const ASide = ({ show, cate, mapping = {}, getObject }) => {
                     </li>
                 </ul>
             </aside>
-            { ((mapping[cate].l || []).length) ? (
+            { ((mapping[cate].l || []).length > 0) && (
                 <nav className={ show ? 'show' : 'hide' }>
                     <ol>
                         { (mapping[cate].l || []).map(getObject).map(({ u, t }, i) => (
@@ -46,7 +46,7 @@ const ASide = ({ show, cate, mapping = {}, getObject }) => {
                         )) }
                     </ol>
                 </nav>
-            ) : ''}
+            )}
         </Fragment>
     );
 };
