@@ -11,7 +11,7 @@ import './doc.css';
 
 const Document = () => {
     const { cate } = useParams();
-    const { pathname } = useLocation();
+    const { pathname, state } = useLocation();
     const [ showNavi, toggleNavi ] = useState(document.body.clientWidth > 600);
     return (
         <PostsContext.Consumer>
@@ -20,7 +20,12 @@ const Document = () => {
                 return (
                     <Fragment >
                         <ASide show={ showNavi } cate={ cate } mapping={ mapping } getObject={ i => items[i] } />
-                        <Post details={ details } toggleNavi={ () => toggleNavi(!showNavi) }/>
+                        { (state && state.nf) ? (
+                            <p>404</p>
+                        ) : (
+                            <Post details={ details } toggleNavi={ () => toggleNavi(!showNavi) }/>
+                        )}
+                        
                     </Fragment>
                 );
             }}

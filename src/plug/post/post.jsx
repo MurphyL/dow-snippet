@@ -23,7 +23,7 @@ const Post = ({ details = {}, toggleNavi }) => {
         }).catch(() => {
             setPostInfo({ status: 2, message: '调用接口失败' });
         });
-    }, [ details ]);
+    }, [ details.u ]);
     return (
         <article>
             <Loadable status={ post.status } message="数据加载中……">

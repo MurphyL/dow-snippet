@@ -10,7 +10,12 @@ const ASide = ({ show, cate, mapping = {}, getObject }) => {
     const { pathname } = useLocation();
     const { push } = useHistory();
     const changeCate = (cn) => {
-        push(getObject(mapping[cn].l[0]).u);
+        const cateObj = mapping[cn];
+        if(cateObj.l.length > 0) {
+            push(getObject(cateObj.l[0]).u);
+        } else {
+            push(`/docs/${cn}/404`, { nf: true });
+        }
     };
     return (
         <Fragment>
@@ -31,15 +36,17 @@ const ASide = ({ show, cate, mapping = {}, getObject }) => {
                     </li>
                 </ul>
             </aside>
-            <nav className={ show ? 'show' : 'hide' }>
-                <ol>
-                    { (mapping[cate].l || []).map(getObject).map(({ u, t }, i) => (
-                        <li key={i} className={ pathname === u ? 'selected' : '' }>
-                            <Link to={ u || 'error/404' }>{ t }</Link>
-                        </li>
-                    )) }
-                </ol>
-            </nav>
+            { ((mapping[cate].l || []).length) ? (
+                <nav className={ show ? 'show' : 'hide' }>
+                    <ol>
+                        { (mapping[cate].l || []).map(getObject).map(({ u, t }, i) => (
+                            <li key={i} className={ pathname === u ? 'selected' : '' }>
+                                <Link to={ u || 'error/404' }>{ t }</Link>
+                            </li>
+                        )) }
+                    </ol>
+                </nav>
+            ) : ''}
         </Fragment>
     );
 };

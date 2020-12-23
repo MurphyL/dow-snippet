@@ -5,7 +5,7 @@ list: false
 
 ## NamedParameterJdbcTemplate
 
-```
+```java
 private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 public void setDataSource(DataSource dataSource) {

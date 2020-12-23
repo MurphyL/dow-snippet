@@ -20,3 +20,7 @@ cate = 'devops'
 tag = 'DevOps'
 name = 'DevOps'
 
+[[cates]]
+cate = 'javascript'
+tag = 'JavaScript'
+name = 'JavaScript'
