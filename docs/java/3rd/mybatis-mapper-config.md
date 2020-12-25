@@ -1,5 +1,5 @@
 ---
-title: "MyBatis 配置文件解析"
+title: "MyBatis Mapper 配置文件解析"
 list: true
 ---
 

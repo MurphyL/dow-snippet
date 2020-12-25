@@ -22,7 +22,7 @@ list: true
 
 ## JDK 镜像
 
-- [华为云 - JDK 镜像](https://repo.huaweicloud.com/java/jdk/)
+- [华为云 - Hotspot JDK 镜像](https://repo.huaweicloud.com/java/jdk/)
 - [华为云 - OpenJDK 镜像](https://mirrors.huaweicloud.com/openjdk/)
 - [清华大学开源软件镜像站 - AdoptOpenJDK 镜像](https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/)
 

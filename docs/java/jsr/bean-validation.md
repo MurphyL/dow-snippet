@@ -5,23 +5,35 @@ list: false
 
 ## 标准注解
 
-- @NotNull：validates that the annotated property value is not null.
-- @AssertTrue：validates that the annotated property value is true.
-- @Size：validates that the annotated property value has a size between the attributes min and max; can be applied to String, Collection, Map, and array properties.
-- @Min：validates that the annotated property has a value no smaller than the value attribute.
-- @Max：validates that the annotated property has a value no larger than the value attribute.
-- @Email：validates that the annotated property is a valid email address.
+- `@NotNull`/`@Null`
+- `@AssertTrue`/`@AssertFalse`
+- `@Size`
+- `@Min`/`@Max`/`@DecimalMax`/`@DecimalMin`
+- `@NotEmpty`
+- `@NotBlank`
 
-Some annotations accept additional attributes, but the message attribute is common to all of them. This is the message that will usually be rendered when the value of the respective property fails validation.
+### 校验数字的值域
 
-## 附加部分的注解
+|  注解   | 注释 |
+|  ----  | ----  |
+| `@Digits`  | 实数 |
+| `@Positive`  | 大于0的数字 |
+| `@PositiveOrZero`  | 大于等于0的数字 |
+| `@Negative` | 小于0的数字 | 
+| `@NegativeOrZero`  | 小于等于0的数字 |
 
-- @NotEmpty validates that the property is not null or empty; can be applied to String, Collection, Map or Array values.
-- @NotBlank can be applied only to text values and validates that the property is not null or whitespace.
-- @Positive and @PositiveOrZero apply to numeric values and validate that they are strictly positive, or positive including 0.
-- @Negative and @NegativeOrZero apply to numeric values and validate that they are strictly negative, or negative including 0.
-- @Past and @PastOrPresent validate that a date value is in the past or the past including the present; can be applied to date types including those added in Java 8.
-- @Future and @FutureOrPresent validate that a date value is in the future, or in the future including the present.
+### 时间类型及值域
+
+- `@Past`/`@PastOrPresent`
+- `@Future`/`@FutureOrPresent`
+
+### 字符串模式匹配
+
+|  注解   | 注释 |
+|  ----  | ----  |
+| `@Pattern`  | 正则表达式 |
+| `@URL`  | `URL`地址 |
+| `@Email` | `EMail`地址 | 
 
 ## 通过编码的方式创建`Validator`
 

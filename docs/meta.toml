@@ -1,14 +1,7 @@
-[navi] # 左侧导航
-java = "Core Java"
-data = "Data Process"
-devops = "DevOps"
-js = "JavaScript"
-
 [[cates]]
 cate = 'java'
 name = 'Core Java'
 tag= 'Java'
-root = 'java'
 
 [[cates]]
 cate = 'data'
@@ -21,6 +14,6 @@ tag = 'DevOps'
 name = 'DevOps'
 
 [[cates]]
-cate = 'javascript'
+cate = 'js'
 tag = 'JavaScript'
 name = 'JavaScript'

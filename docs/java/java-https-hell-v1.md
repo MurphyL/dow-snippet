@@ -35,3 +35,10 @@ keytool -import -alias murph -keystore cacerts -file ./x.cer
 > java.security.cert.CertificateException: No subject alternative DNS name matching found.
 
 证书中暂不支持使用的`IP`或者域名（尤其注意`127.0.0.1`和`localhost`）。
+
+
+## 安全限制策略问题 
+
+> The jurisdiction policy files are not signed by the expected signer! (Policy files are specific per major JDK release.Ensure the correct version is installed.)
+
+- [Policy jars for Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
