@@ -27,6 +27,9 @@ const ASide = ({ show, cate, mapping = {}, getObject }) => {
                 </ul>
                 <ul className="links" label="LINKS">
                     <li>
+                        <Link to="/x/navi">开发者导航</Link>
+                    </li>
+                    <li>
                         <a href={ process.env.REACT_APP_MAIN_PAGE || '' } target="_blank" rel="noreferrer">返回主页</a>
                     </li>
                 </ul>

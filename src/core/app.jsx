@@ -7,6 +7,7 @@ import axios from 'axios';
 import Loading from 'utils/loading/loading.jsx';
 
 import Document from 'view/doc/doc.jsx';
+import Dash from 'view/murph/murph.jsx';
 
 import PostsContext from 'utils/context.jsx';
 
@@ -40,6 +41,7 @@ const App = () => {
                             <Redirect to={ x[0].u || '/error/404' } />
                         </Route>
                         <Route path={[ '/docs/:cate/:tag/:post', '/docs/:cate/:post' ]} component={ Document } />
+                        <Route path="/x/:unique" component={ Dash } />
                         <Route>404</Route>
                     </Switch>
                 </BrowserRouter>
