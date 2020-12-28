@@ -1,51 +1,23 @@
-import React, { StrictMode, useEffect, useState } from 'react';
+import React, { StrictMode } from 'react';
 
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import axios from 'axios';
-
-import Loading from 'utils/loading/loading.jsx';
-
-import Document from 'view/doc/doc.jsx';
+import DocX from 'view/docx/docx.jsx';
 import Dash from 'view/murph/murph.jsx';
 
-import PostsContext from 'utils/context.jsx';
-
 const App = () => {
-    const [ fetched, setData ] = useState({ status: 1 });
-    useEffect(() => {
-        axios.get('/docs/meta.json').then(({ status, data }) => {
-            if(status === 200) {
-                setData({ status: 0, ...data });
-            } else {
-                setData({ status: 2, message: '调用接口失败' });
-            }
-        }).catch(() => {
-            setData({ status: 2, message: '请求数据出错' });
-        });
-    }, []);
-    if(fetched.status === 1) {
-        return (
-            <Loading message="数据加载中……" />
-        );
-    } else if(fetched.status === 2) {
-        return `数据加载失败：${fetched.message}`
-    }
-    const { x = [], m = {}} = fetched;
     return (
         <StrictMode>
-            <PostsContext.Provider value={{ items: x, mapping: m }}>
-                <BrowserRouter>
-                    <Switch>
-                        <Route path="/" exact>
-                            <Redirect to={ x[0].u || '/error/404' } />
-                        </Route>
-                        <Route path={[ '/docs/:cate/:tag/:post', '/docs/:cate/:post' ]} component={ Document } />
-                        <Route path="/x/:unique" component={ Dash } />
-                        <Route>404</Route>
-                    </Switch>
-                </BrowserRouter>
-            </PostsContext.Provider>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/" exact>
+                        <div>hello</div>
+                    </Route>
+                    <Route path="/docx/" component={ DocX } />
+                    <Route path="/x/:unique" component={ Dash } />
+                    <Route>404</Route>
+                </Switch>
+            </BrowserRouter>
         </StrictMode>
     );
 }

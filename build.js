@@ -7,9 +7,9 @@ const toml = require('@iarna/toml');
 const matter = require('gray-matter');
 const FileSync = require('lowdb/adapters/FileSync');
 
-const DOC_ROOT = './docs';
+const DOC_ROOT = './xdm/docs';
 
-const META_FILE = './docs/meta.toml';
+const META_FILE = './xdm/docs/meta.toml';
 const DEST_FILE = './public/docs/meta.json';
 
 shell.rm('-rf', './public/docs');
@@ -21,19 +21,19 @@ db.defaults({ }).write();
 
 const meta = fs.readFileSync(META_FILE).toString();
 
-const { cates = [], icons = [] } = toml.parse(meta);
+const { cates = [] } = toml.parse(meta);
 
 const mapping = [];
 
-const mx = {};
 
 cates.forEach((item) => {
-    const { cate, name, tag } = item;
+    const { cate, tag } = item;
     const items = [];
     shell.ls('-R', path.join(DOC_ROOT, cate, '**/*.md')).forEach((filepath) => {
-        shell.mkdir('-p', path.dirname(`./public/${filepath}`));
+        const target = filepath.replace(/^xdm\//g, '');
+        shell.mkdir('-p', path.dirname(`./public/${target}`));
         const { data, content } = matter.read(filepath);
-        fs.writeFileSync(`./public/${filepath}`, (content || '').trim());
+        fs.writeFileSync(`./public/${target}`, (content || '').trim());
         const { title, list, icon, tags = [] } = data;
         if(list) {
             items.push(mapping.length);
@@ -42,12 +42,14 @@ cates.forEach((item) => {
             t: title, 
             i: icon || cate, 
             k: [ tag, ...tags ], // keywords
-            u: `/${filepath.replace(/\.md$/, '')}` // url
+            u: `/${target.replace(/\.md$/g, '')}` // url
         });
     });
-    mx[cate] = { n: name, l: items };
+    item.l = items;
 });
 
-db.set('x', mapping).set('m', mx).write();
+const cl = cates.map(({ cate, name, tag, l }) => ({ c: cate, n: name, t: tag, l }));
+
+db.set('x', mapping).set('c', cl).write();
 
 console.log('数据文件已生成！~');

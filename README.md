@@ -1,5 +1,7 @@
 # dow-snippet
 
+>xdm：x -> dynamic module
+
 ```sh
 # 构建依赖镜像
 docker build -t nodejs-run:v0.1 .
