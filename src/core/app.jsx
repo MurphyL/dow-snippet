@@ -3,7 +3,7 @@ import React, { StrictMode } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import DocX from 'view/docx/docx.jsx';
-import Dash from 'view/murph/navi.jsx';
+import Navi from 'view/murph/navi.jsx';
 
 const App = () => {
     return (
@@ -14,7 +14,7 @@ const App = () => {
                         <div>hello</div>
                     </Route>
                     <Route path="/docs/" component={ DocX } />
-                    <Route path="/x/:unique" component={ Dash } />
+                    <Route path="/navi/" exact component={ Navi } />
                     <Route>404</Route>
                 </Switch>
             </BrowserRouter>
