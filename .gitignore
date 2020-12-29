@@ -128,4 +128,5 @@ yarn-error.log*
 
 
 # murph
+public/x/
 public/docs/

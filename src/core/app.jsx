@@ -3,7 +3,7 @@ import React, { StrictMode } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import DocX from 'view/docx/docx.jsx';
-import Dash from 'view/murph/murph.jsx';
+import Dash from 'view/murph/navi.jsx';
 
 const App = () => {
     return (
