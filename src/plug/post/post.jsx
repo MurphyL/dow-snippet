@@ -27,7 +27,7 @@ const Post = ({ details = {}, toggleNavi }) => {
     return (
         <article>
             <Loadable status={ post.status } message="数据加载中……">
-                <header className="header" onClick={ toggleNavi }>
+                <header className="header">
                     <div className="label">
                         <span className="icon">
                             <SimpleIcons icon={ details.i || 'dunked' } />

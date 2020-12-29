@@ -13,7 +13,7 @@ const App = () => {
                     <Route path="/" exact>
                         <div>hello</div>
                     </Route>
-                    <Route path="/docx/" component={ DocX } />
+                    <Route path="/docs/" component={ DocX } />
                     <Route path="/x/:unique" component={ Dash } />
                     <Route>404</Route>
                 </Switch>

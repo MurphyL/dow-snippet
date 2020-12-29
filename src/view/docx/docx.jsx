@@ -6,19 +6,42 @@ import { AjaxLoadable } from 'utils/loading/loading.jsx';
 
 import ASide from 'plug/aside/aside.jsx';
 
+import Post from 'plug/post/post.jsx';
+
 const Snippet = () => {
     const { pathname } = useLocation();
-    const target = `/${pathname.replace(/^\/docx\/?/, '')}`;
-    return (target === '/') ? (
+    const target = pathname.replace(/(^\/docs\/?)|(\/*$)/g, '');
+    return (
         <AjaxLoadable url="/docs/meta.json" render={({ c = [{ n: '404' }], x = [] }) => {
+            const sideOptions = { cates: c };
+            const postDetails = {};
+            if(target === '') {
+                sideOptions.kind = 'index';
+                sideOptions.docs = ((c[0] || {}).l || []).map(i => x[i]);
+                sideOptions.markCate = (o, i) => (i === 0);
+                sideOptions.markPost = (u, i) => (i === 0);
+                Object.assign(postDetails, sideOptions.docs[0]);
+            } else {
+                const [ cate, ...others ] = target.split('/');
+                sideOptions.docs = ((c.find(({ c }) => (c === cate)) || {}).l || []).map(i => x[i]);
+                sideOptions.markCate = (c, i) => (c === cate);
+                if(others.length === 0) {
+                    sideOptions.kind = 'cate';
+                    sideOptions.markPost = (u, i) => (i === 0);
+                    Object.assign(postDetails, sideOptions.docs[0]);
+                } else {
+                    sideOptions.kind = 'post';
+                    sideOptions.markPost = (u, i) => (u === pathname);
+                    Object.assign(postDetails, sideOptions.docs.find(({ u }) => (u === pathname)));
+                }
+            }
             return (
                 <Fragment>
-                    <ASide items={ c } getObject={ i => x[i] } />
+                    <ASide { ...sideOptions } />
+                    <Post details={ postDetails } />
                 </Fragment>
             );
         }} />
-    ) : (
-        target
     )
 };
 
