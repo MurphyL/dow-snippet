@@ -1,12 +1,12 @@
 import './df-table.css';
 
-const DataFrameTable = ({ df }) => {
+const DataFrameTable = ({ df, header = (column) => column }) => {
     return (
         <table>
             <thead>
                 <tr>
                     { df.listColumns().map((c, i) => (
-                        <th key={ `h-${i}` }>{ c || '-' }</th>
+                        <th key={ `h-${i}` }>{ header(c) || '-' }</th>
                     )) }
                 </tr>
             </thead>

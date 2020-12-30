@@ -4,7 +4,33 @@
     overflow: auto;
 }
 
-.dataset table th, .dataset table td {
-    padding: 5px 10px;
+.dataset table {
+	margin: 5px 15px;
+}
+
+.dataset table th, 
+.dataset table td {
+    padding: 0 10px;
     white-space: nowrap;
+	line-height: 35px;
+}
+
+.dataset table tbody tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+.dataset table tbody tr:nth-child(even) {
+	background-color: #fcfcfc;
+}
+
+.dataset table tbody tr:nth-child(odd) td {
+	border-right: 1px solid #fcfcfc;
+}
+
+.dataset table tbody tr:nth-child(even) td {
+	border-right: 1px solid #f2f2f2;
+}
+
+.dataset table tbody tr td:last-child {
+	border-right: none;
 }

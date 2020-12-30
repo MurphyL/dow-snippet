@@ -6,9 +6,9 @@ import Markdown from 'markdown-to-jsx';
 
 import SimpleIcons from 'utils/icons.jsx';
 
-import { markdownOptions } from 'utils/mark/mark.jsx';
+import { markdownOptions } from 'plug/mark/mark.jsx';
 
-import { Loadable } from 'utils/loading/loading.jsx';
+import { Loadable } from 'plug/loading/loading.jsx';
 
 import './post.css';
 

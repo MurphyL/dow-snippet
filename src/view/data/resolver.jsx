@@ -8,7 +8,7 @@ import Tabs from "plug/tabs/tabs.jsx";
 
 import Table from "plug/df-table/df-table.jsx";
 
-import { PromiseLoadable } from "utils/loading/loading.jsx";
+import { PromiseLoadable } from "plug/loading/loading.jsx";
 
 import './resolver.css';
 
@@ -38,65 +38,58 @@ const resolveFile = (files) => {
         const filetype = SUPPORTED_FILE_TYPES[file.type];
         const dataset = FILE_PROCESSER_CONFIG[filetype](file);
         return {
-            filetype, dataset, filename: file.name
+            filetype, dataset, filename: file.name, selected: new Set()
         };
     })
 };
 
-function  FileResolver() {
+const FileResolver = () => {
     const [ dfs, setDataFrames ] = useState(null);
-    console.log(dfs);
+    const [ tabIndex, setCurrentTab ] = useState(null);
     return (
         <Fragment>
             <div className="bar">
                 <input type="file" accept={ Object.keys(ACCEPT_FILE_TYPES).join(', ') } onChange={ (e) =>  {
                     setDataFrames(resolveFile(e.target.files));
                 } } multiple />
+                <button onClick={ () => {
+                    if(!dfs) {
+                        return console.error('尚未加载数据文件');;
+                    }
+                    const tabInfo = dfs[tabIndex];
+                    if(!tabInfo || tabInfo.selected.size === 0) {
+                        return console.error('没有选中任何数据');
+                    }
+                    tabInfo.dataset.then((df) => {
+                        console.log(df.select(...Array.from(tabInfo.selected)).toJSON());
+                    })
+                } }>导出</button>
             </div>
-            { (null !== dfs) && <Tabs items={ dfs.map(({ filetype, dataset, filename }) => {
+            <Tabs onChange={ (i) => { setCurrentTab(i) } } items={ (dfs || [ ]).map(({ filetype, dataset, filename, selected }) => {
                 return ({
-                    name: <div>{ filetype } - { filename }</div>,
-                    body: <PromiseLoadable  promise={dataset} render={ (df) => (
-                        <div className="dataset">
-                            <Table df={ df } />
-                        </div>
-                    )} />
+                    name: ( <div>{ filetype } - { filename }</div> ),
+                    body: (
+                        <PromiseLoadable  promise={dataset} render={ (df) => (
+                            <div className="dataset">
+                                <Table df={ df } header={ (column) => (
+                                    <span className="column" onClick={ ({ target }) => {
+                                        if(selected.has(column)) {
+                                            target.classList.remove('selected');
+                                            selected.delete(column);
+                                        } else {
+                                            target.classList.add('selected');
+                                            selected.add(column);
+                                        }
+                                        
+                                    } }>{ column }</span>
+                                ) }/>
+                            </div>
+                        )} />
+                    )
                 });
-            }) } /> }
+            }) } />
         </Fragment>
     );
 };
 
 export default FileResolver;
-
-
-/***
- * 
-    { (null !== dfs) && dfs.map((df, i) => (
-        <PromiseLoadable key={ `f-${i}` } promise={df} render={({ filetype, filename, dataset }) => (
-            <Tabs />
-        )} />
-    )) }
- * 
- */
-
-// <div className="dataset">
-//     <table>
-//         <thead>
-//             <tr>
-//                 { df.listColumns().map((c, i) => (
-//                     <th key={ `h-${i}` }>{ c || '-' }</th>
-//                 )) }
-//             </tr>
-//         </thead>
-//         <tbody>
-//             { df.toArray().map((row, ri) => (
-//                 <tr key={ `r-${ri}` }>
-//                     { row.map((col, ci) => (
-//                         <td key={ `c-${ci}` }>{ col }</td>
-//                     )) }
-//                 </tr>
-//             )) }
-//         </tbody>
-//     </table>
-// </div>

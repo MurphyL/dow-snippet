@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 
 import { useLocation } from "react-router-dom";
 
-import { AjaxLoadable } from 'utils/loading/loading.jsx';
+import { AjaxLoadable } from 'plug/loading/loading.jsx';
 
 import ASide from 'plug/aside/aside.jsx';
 

@@ -1,4 +1,4 @@
-import { AjaxLoadable } from 'utils/loading/loading.jsx';
+import { AjaxLoadable } from 'plug/loading/loading.jsx';
 
 const Dashboard = () => {
     return (
