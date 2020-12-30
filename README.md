@@ -14,6 +14,9 @@ docker-compose up -d
 
 - [nodejs-run](https://github.com/MurphyL/nodejs-run)
 
+## 依赖库
+
+- jsonpath-plus
 
 ## 其他
 

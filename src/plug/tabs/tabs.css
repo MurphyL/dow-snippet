@@ -1,0 +1,20 @@
+.tabs {
+    margin-top: 10px;
+}
+
+.tabs .tab-keys {
+    border-bottom: 1px solid #ccc;
+}
+.tabs .tab-keys .tab-key {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.tabs .tab-keys .tab-key.selected {
+    background-color: #ccc;
+    color: rgba(0, 0, 0, 0.6);
+}

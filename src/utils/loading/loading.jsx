@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { useAjax } from 'utils/ajax-hooks.jsx';
 
@@ -24,6 +24,21 @@ export const Loadable = ({ status, message, error, children }) => (
         })() }
     </Fragment>
 );
+
+export const PromiseLoadable = ({ promise, render }) => {
+    const [ payload, setPayload ] = useState(null);
+    useEffect(() => {
+        if(promise) {
+            promise.then((res) => { setPayload(res) });
+        }
+    }, [ promise ]);
+    if(null === payload) {
+        return 'loading'
+    } else {
+        return render && typeof(render) === 'function' && render.apply(null, [ payload ]);
+    }
+    
+};
 
 export const AjaxLoadable = ({ method = 'GET', url = '', render }) => {
     const { status, payload, message } = useAjax({ method, url });

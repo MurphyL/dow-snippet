@@ -33,23 +33,3 @@ body {
     border-radius: 20px;
     border: 1px solid  rgba(192, 192, 192, 1);
 }
-
-#app {
-    display: flex;
-}
-
-#app aside,
-#app nav,
-#app article {
-    height: 100%;
-}
-
-#app aside,
-#app nav {
-    user-select: none;
-}
-
-
-#app .hide {
-    display: none;
-}

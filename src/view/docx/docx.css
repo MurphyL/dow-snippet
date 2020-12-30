@@ -1,0 +1,20 @@
+
+#app {
+    display: flex;
+}
+
+#app aside,
+#app nav,
+#app article {
+    height: 100%;
+}
+
+#app aside,
+#app nav {
+    user-select: none;
+}
+
+
+#app .hide {
+    display: none;
+}
