@@ -1,6 +1,7 @@
 ---
 title: "MySQL 使用笔记"
 icon: 'mysql'
+list: true
 ---
 
 ## 探索表结构

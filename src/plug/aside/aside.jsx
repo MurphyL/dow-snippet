@@ -6,7 +6,7 @@ import SimpleIcons from 'utils/icons.jsx';
 
 import './aside.css';
 
-const ASide = ({ cates = [{ n: '404' }], docs = [], markCate, markPost, show = true }) => {
+const ASide = ({ cates = [{ n: '404' }], docs = [], markCate, markPost, show = true }, ref) => {
     const { push } = useHistory();
     return (
         <Fragment>

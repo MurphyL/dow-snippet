@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 
 import { useLocation } from "react-router-dom";
 
@@ -8,8 +8,11 @@ import ASide from 'plug/aside/aside.jsx';
 
 import Post from 'plug/post/post.jsx';
 
+import './docx.css';
+
 const Snippet = () => {
     const { pathname } = useLocation();
+    const [ asideStatus, setAsideStatus ] = useState(true);
     const target = pathname.replace(/(^\/docs\/?)|(\/*$)/g, '');
     return (
         <AjaxLoadable url="/docs/meta.json" render={({ c = [{ n: '404' }], x = [] }) => {
@@ -37,8 +40,10 @@ const Snippet = () => {
             }
             return (
                 <Fragment>
-                    <ASide { ...sideOptions } />
-                    <Post details={ postDetails } />
+                    <ASide { ...sideOptions } show={ asideStatus } />
+                    <Post details={ postDetails } toggleNavi={ () => {
+                        setAsideStatus(!asideStatus);
+                     } } />
                 </Fragment>
             );
         }} />
