@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { forwardRef, useState, useEffect } from "react";
 
 import './tabs.css';
 
-const Tabs = ({ items = [], selected = 0, onChange }) => {
+const Tabs = ({ items = [], selected = 0 }, ref) => {
     const [ current, setCurrent ] = useState(selected);
     useEffect(() => {
-        onChange(current);
-    }, [ current, onChange ]);
+        ref.current = current;
+    }, [ current, ref ]);
     return (
         <div className="tabs">
             <div className="tab-keys">
@@ -16,10 +16,10 @@ const Tabs = ({ items = [], selected = 0, onChange }) => {
                 {}
             </div>
             <div className="tab-body">
-                { ((item) => item ? item.body : <div>Nothing here!</div>)(items[current]) }
+                { ((item) => item ? item.body() : <div>Nothing here!</div>)(items[current]) }
             </div>
         </div>
     );    
 };
 
-export default Tabs;
+export default forwardRef(Tabs);

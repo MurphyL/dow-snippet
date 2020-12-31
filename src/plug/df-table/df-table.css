@@ -8,6 +8,14 @@
 	margin: 5px 15px;
 }
 
+.dataset table th {
+	cursor: pointer;
+}
+
+.dataset table th.selected {
+	color: red;
+}
+
 .dataset table th, 
 .dataset table td {
     padding: 0 10px;

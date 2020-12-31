@@ -1,8 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
 
 import DataFrame from 'dataframe-js';
 
 import readXlsxFile from 'read-excel-file';
+
+import { saveAs } from 'file-saver';
 
 import Tabs from "plug/tabs/tabs.jsx";
 
@@ -38,14 +40,15 @@ const resolveFile = (files) => {
         const filetype = SUPPORTED_FILE_TYPES[file.type];
         const dataset = FILE_PROCESSER_CONFIG[filetype](file);
         return {
-            filetype, dataset, filename: file.name, selected: new Set()
+            filetype, dataset, filename: file.name
         };
     })
 };
 
 const FileResolver = () => {
+    const tabRef = useRef();
+    const tableRef = useRef();
     const [ dfs, setDataFrames ] = useState(null);
-    const [ tabIndex, setCurrentTab ] = useState(null);
     return (
         <Fragment>
             <div className="bar">
@@ -56,33 +59,29 @@ const FileResolver = () => {
                     if(!dfs) {
                         return console.error('尚未加载数据文件');;
                     }
-                    const tabInfo = dfs[tabIndex];
-                    if(!tabInfo || tabInfo.selected.size === 0) {
+                    const tabInfo = dfs[tabRef.current];
+                    console.log('操作的数据集：', tabInfo.filename);
+                    const columns = Array.from(tableRef.current[tabInfo.filename]);
+                    if(!tabInfo || columns.size === 0) {
                         return console.error('没有选中任何数据');
                     }
                     tabInfo.dataset.then((df) => {
-                        console.log(df.select(...Array.from(tabInfo.selected)).toJSON());
+                        console.table(df.select(...columns).toCollection());
+                        const blob = new Blob(['\uFEFF' + df.select(...columns).toCSV()], {
+                            type: "text/csv;charset=ANSI",
+                            endings: "native"
+                        });
+                        saveAs(URL.createObjectURL(blob), "hello.csv");
                     })
                 } }>导出</button>
             </div>
-            <Tabs onChange={ (i) => { setCurrentTab(i) } } items={ (dfs || [ ]).map(({ filetype, dataset, filename, selected }) => {
+            <Tabs ref={ tabRef } items={ (dfs || []).map(({ filetype, dataset, filename }) => {
                 return ({
                     name: ( <div>{ filetype } - { filename }</div> ),
-                    body: (
+                    body: () => (
                         <PromiseLoadable  promise={dataset} render={ (df) => (
                             <div className="dataset">
-                                <Table df={ df } header={ (column) => (
-                                    <span className="column" onClick={ ({ target }) => {
-                                        if(selected.has(column)) {
-                                            target.classList.remove('selected');
-                                            selected.delete(column);
-                                        } else {
-                                            target.classList.add('selected');
-                                            selected.add(column);
-                                        }
-                                        
-                                    } }>{ column }</span>
-                                ) }/>
+                                <Table ref={ tableRef } unique={ filename } df={ df } />
                             </div>
                         )} />
                     )
