@@ -60,18 +60,21 @@ const FileResolver = () => {
                         return console.error('尚未加载数据文件');;
                     }
                     const tabInfo = dfs[tabRef.current];
-                    console.log('操作的数据集：', tabInfo.filename);
                     const columns = Array.from(tableRef.current[tabInfo.filename]);
-                    if(!tabInfo || columns.size === 0) {
+                    if(!tabInfo || columns.length === 0) {
                         return console.error('没有选中任何数据');
                     }
                     tabInfo.dataset.then((df) => {
-                        console.table(df.select(...columns).toCollection());
-                        const blob = new Blob(['\uFEFF' + df.select(...columns).toCSV()], {
+                        const result = df.select(...columns);
+                        const [ height, weight ] = result.dim();
+                        console.log(`操作的数据集（${height}行/${weight}列）- ${tabInfo.filename}`);
+                        console.table(result.toCollection());
+                        // '\uFEFF' - bom
+                        const blob = new Blob(['\uFEFF' + result.toCSV()], {
                             type: "text/csv;charset=ANSI",
                             endings: "native"
                         });
-                        saveAs(URL.createObjectURL(blob), "hello.csv");
+                        saveAs(blob, `${tabInfo.filename}.${Date.now()}.csv`);
                     })
                 } }>导出</button>
             </div>
