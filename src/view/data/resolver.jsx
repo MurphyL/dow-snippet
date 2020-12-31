@@ -67,7 +67,7 @@ const FileResolver = () => {
                     tabInfo.dataset.then((df) => {
                         const result = df.select(...columns);
                         const [ height, weight ] = result.dim();
-                        console.log(`操作的数据集（${height}行/${weight}列）- ${tabInfo.filename}`);
+                        console.log(`操作的数据集[${height}行/${weight}列]- ${tabInfo.filename}`);
                         console.table(result.toCollection());
                         // '\uFEFF' - bom
                         const blob = new Blob(['\uFEFF' + result.toCSV()], {
