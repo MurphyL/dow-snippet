@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import DataFrame from 'dataframe-js';
 
@@ -50,7 +50,7 @@ const FileResolver = () => {
     const tableRef = useRef();
     const [ dfs, setDataFrames ] = useState(null);
     return (
-        <Fragment>
+        <div className="data-resolver">
             <div className="bar">
                 <input type="file" accept={ Object.keys(ACCEPT_FILE_TYPES).join(', ') } onChange={ (e) =>  {
                     setDataFrames(resolveFile(e.target.files));
@@ -90,7 +90,7 @@ const FileResolver = () => {
                     )
                 });
             }) } />
-        </Fragment>
+        </div>
     );
 };
 

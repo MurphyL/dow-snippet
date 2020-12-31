@@ -1,19 +1,20 @@
-#app {
+#app .docs {
     display: flex;
-}
-
-#app aside,
-#app nav,
-#app article {
     height: 100%;
 }
 
-#app aside,
-#app nav {
+#app .docs aside,
+#app .docs nav,
+#app .docs article {
+    height: 100%;
+}
+
+#app .docs aside,
+#app .docs nav {
     user-select: none;
 }
 
 
-#app .hide {
+#app .docs .hide {
     display: none;
 }

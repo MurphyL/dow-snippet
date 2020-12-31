@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 import { useLocation } from "react-router-dom";
 
@@ -39,12 +39,12 @@ const Snippet = () => {
                 }
             }
             return (
-                <Fragment>
+                <div className="docs">
                     <ASide { ...sideOptions } show={ asideStatus } />
                     <Post details={ postDetails } toggleNavi={ () => {
                         setAsideStatus(!asideStatus);
                      } } />
-                </Fragment>
+                </div>
             );
         }} />
     )
