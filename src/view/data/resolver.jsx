@@ -14,6 +14,8 @@ import { PromiseLoadable } from "plug/loading/loading.jsx";
 
 import './resolver.css';
 
+// DataFrame API - https://gmousse.gitbooks.io/dataframe-js/content/doc/api/dataframe.html
+
 const FILE_PROCESSER_CONFIG = {
     Excel: async (file) => {
         const dataSet = await readXlsxFile(file);

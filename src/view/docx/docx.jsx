@@ -35,7 +35,7 @@ const Snippet = () => {
                 } else {
                     sideOptions.kind = 'post';
                     sideOptions.markPost = (u, i) => (u === pathname);
-                    Object.assign(postDetails, sideOptions.docs.find(({ u }) => (u === pathname)));
+                    Object.assign(postDetails, x.find(({ u }) => (u === pathname)));
                 }
             }
             return (
