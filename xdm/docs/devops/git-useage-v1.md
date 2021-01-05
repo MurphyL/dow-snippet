@@ -20,3 +20,4 @@ git diff --shortstat '@{1 day ago}'
 ## 参考资料
 
 - <Link to="/docs/devops/ssh-useage-v1">生成 SSH 密钥</Link>
+- [AntBranch / awesome-github](https://github.com/AntBranch/awesome-github)

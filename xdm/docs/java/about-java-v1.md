@@ -29,3 +29,5 @@ list: true
 ## 参考资料
 
 - [Maven Repository - Top Categories](https://mvnrepository.com/open-source)
+- [Java 技术栈的知识点索引](https://awesome-wiki.github.io/awesome-wiki-java/#/)
+- [性能优化常用工具及经验总结](https://mp.weixin.qq.com/s?__biz=MzU4NzU0MDIzOQ==&mid=2247488458&idx=4&sn=a706fd5512dacdb2e07a1d0f7ccefc69&chksm=fdeb21aaca9ca8bc0a6b76b8b3d4551e31bfb2c1baa41f688ec16a65dc2bc49bbe5f1883e66d&token=1983052188&lang=zh_CN#rd)

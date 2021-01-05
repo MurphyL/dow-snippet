@@ -22,3 +22,4 @@ docker-compose up -d
 
 - [Coolors - 配色](https://coolors.co/393d3f-fdfdff-c6c5b9-62929e-546a7b)
 - [Simple Icons](https://simpleicons.org/)
+- [电子书](https://github.com/guanpengchn/awesome-books)

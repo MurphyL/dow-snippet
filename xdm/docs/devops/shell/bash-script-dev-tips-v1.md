@@ -128,3 +128,4 @@ fi
 ## 参考资料
 
 - [Linux Shell--判断文件夹是否存在](https://cloud.tencent.com/developer/article/1406056)
+- [Linux shell 的实用小技巧](https://labuladong.gitbook.io/algo/di-wu-zhang-ji-shu-wen-zhang-xi-lie/linuxshell-ji-qiao)
