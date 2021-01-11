@@ -1,6 +1,6 @@
 
 /** 文章 **/
-#app article {
+.post_plugin {
     flex: 1;
     margin: 0;
     overflow-x: auto;
@@ -8,7 +8,7 @@
     border-left: 1px solid #ccc;
 }
 
-#app article .header {
+.post_plugin .header {
     position: relative;
     display: flex;
     padding-left: 10px;
@@ -19,38 +19,38 @@
     user-select: none;
 }
 
-#app article .header .label {
+.post_plugin .header .label {
     flex: 1;
 }
 
-#app article .header .operations {
+.post_plugin .header .operations {
     padding: 0 10px;
 }
 
-#app article .header .operations span {
+.post_plugin .header .operations span {
     padding: 0 5px;
     cursor: pointer;
 }
 
-#app article .header .operations svg {
+.post_plugin .header .operations svg {
     width: 16px;
     height: 16px;
     line-height: 100%;
     vertical-align: middle;
 }
 
-#app article .header .label .icon {
+.post_plugin .header .label .icon {
     display: inline-block;
     vertical-align: middle;
     line-height: 40px;
     width: 20px;
 }
 
-#app article .header .label .icon svg {
+.post_plugin .header .label .icon svg {
     height: 20px;
 }
 
-#app article .header .label .text {
+.post_plugin .header .label .text {
     margin: 0 0 0 5px;
     overflow: hidden;
     white-space: nowrap;
@@ -58,24 +58,20 @@
     font-size: 16px;
 }
 
-#app article .header .label .text::before {
+.post_plugin .header .label .text::before {
     margin-right: 5px;
     opacity: 0.3;
     font-size: 12px;
 }
 
-#app article .header .label .text:hover::before {
+.post_plugin .header .label .text:hover::before {
     opacity: 0.6;
 }
 
-#app article .board {
+.post_plugin .board {
     margin-bottom: 10px;
     width: 100%;
     max-width: 100%;
     height: calc(100% - 40px);
     overflow-y: auto;
-}
-
-#app article .board .markdown-to-jsx {
-    padding-bottom: 20px;
 }

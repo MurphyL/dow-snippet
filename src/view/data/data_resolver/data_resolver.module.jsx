@@ -6,13 +6,13 @@ import readXlsxFile from 'read-excel-file';
 
 import { saveAs } from 'file-saver';
 
-import Tabs from "plug/tabs/tabs.jsx";
+import Tabs from "plug/tabs/tabs.plugin.jsx";
 
-import Table from "plug/df-table/df-table.jsx";
+import Table from "plug/df_table/df_table.plugin.jsx";
 
 import { PromiseLoadable } from "plug/loading/loading.jsx";
 
-import './resolver.css';
+import styles from './data_resolver.module.css';
 
 // DataFrame API - https://gmousse.gitbooks.io/dataframe-js/content/doc/api/dataframe.html
 
@@ -53,7 +53,7 @@ const FileResolver = () => {
     const [ dfs, setDataFrames ] = useState(null);
     return (
         <div className="data-resolver">
-            <div className="bar">
+            <div className={styles.bar}>
                 <input type="file" accept={ Object.keys(ACCEPT_FILE_TYPES).join(', ') } onChange={ (e) =>  {
                     setDataFrames(resolveFile(e.target.files));
                 } } multiple />
@@ -85,9 +85,7 @@ const FileResolver = () => {
                     name: ( <div>{ filetype } - { filename }</div> ),
                     body: () => (
                         <PromiseLoadable  promise={dataset} render={ (df) => (
-                            <div className="dataset">
-                                <Table ref={ tableRef } unique={ filename } df={ df } />
-                            </div>
+                            <Table ref={ tableRef } unique={ filename } df={ df } />
                         )} />
                     )
                 });

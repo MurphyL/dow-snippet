@@ -4,41 +4,41 @@
     overflow: auto;
 }
 
-.dataset table {
+.dataset {
 	margin: 5px 15px;
 }
 
-.dataset table th {
+.dataset th {
 	cursor: pointer;
 }
 
-.dataset table th.selected {
+.dataset th.selected {
 	color: red;
 }
 
-.dataset table th, 
-.dataset table td {
+.dataset th, 
+.dataset td {
     padding: 0 10px;
     white-space: nowrap;
 	line-height: 35px;
 }
 
-.dataset table tbody tr:nth-child(odd) {
+.dataset tbody tr:nth-child(odd) {
 	background-color: #f2f2f2;
 }
 
-.dataset table tbody tr:nth-child(even) {
+.dataset tbody tr:nth-child(even) {
 	background-color: #fcfcfc;
 }
 
-.dataset table tbody tr:nth-child(odd) td {
+.dataset tbody tr:nth-child(odd) td {
 	border-right: 1px solid #fcfcfc;
 }
 
-.dataset table tbody tr:nth-child(even) td {
+.dataset tbody tr:nth-child(even) td {
 	border-right: 1px solid #f2f2f2;
 }
 
-.dataset table tbody tr td:last-child {
+.dataset tbody tr td:last-child {
 	border-right: none;
 }

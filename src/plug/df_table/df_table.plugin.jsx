@@ -1,19 +1,19 @@
 import { forwardRef, useEffect, useReducer, useState } from "react";
 
-import './df-table.css';
+import styles from './df_table.module.css';
 
-const DataFrameTable = ({ df, unique = 'default' }, ref) => {
+const DataFrameTable = forwardRef(({ df, unique = 'default' }, ref) => {
     const [ , forceUpdate ] = useReducer(x => x + 1, 0);
     const [ selected, setSelected ] = useState({});
     useEffect(() => {
         ref.current = selected;
     }, [ ref, unique, selected ]);
     return (
-        <table>
+        <table className={styles.dataset}>
             <thead>
                 <tr>
                     { df.listColumns().map((c, i) => (
-                        <th key={ `h-${i}` } className={ ( selected[unique] && selected[unique].has(c) ) ? 'selected' : '' } onClick={ () => {
+                        <th key={ `h-${i}` } className={ ( selected[unique] && selected[unique].has(c) ) ? styles.selected : '' } onClick={ () => {
                             if(!selected[unique]) {
                                 selected[unique] = new Set();
                             }
@@ -39,6 +39,8 @@ const DataFrameTable = ({ df, unique = 'default' }, ref) => {
             </tbody>
         </table>
     );
-};
+});
 
-export default forwardRef(DataFrameTable);
+DataFrameTable.displayName = 'DataFrameTable';
+
+export default DataFrameTable;

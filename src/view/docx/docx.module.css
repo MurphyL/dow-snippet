@@ -1,0 +1,15 @@
+.docs {
+    display: flex;
+    height: 100%;
+}
+
+.docs aside,
+.docs nav,
+.docs article {
+    height: 100%;
+}
+
+.docs aside,
+.docs nav {
+    user-select: none;
+}

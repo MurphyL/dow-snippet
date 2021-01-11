@@ -1,17 +1,15 @@
 import { useState } from 'react';
 
-import { useLocation } from "react-router-dom";
-
 import { AjaxLoadable } from 'plug/loading/loading.jsx';
 
-import ASide from 'plug/aside/aside.jsx';
+import ASide from 'plug/aside/aside.plugin.jsx';
 
-import Post from 'plug/post/post.jsx';
+import Post from 'plug/post/post.plugin.jsx';
 
-import './docx.css';
+import styles from './docx.module.css';
 
-const Snippet = () => {
-    const { pathname } = useLocation();
+const Snippet = ({ location }) => {
+    const { pathname } = location;
     const [ asideStatus, setAsideStatus ] = useState(true);
     const target = pathname.replace(/(^\/docs\/?)|(\/*$)/g, '');
     return (
@@ -39,7 +37,7 @@ const Snippet = () => {
                 }
             }
             return (
-                <div className="docs">
+                <div className={ styles.docs }>
                     <ASide { ...sideOptions } show={ asideStatus } />
                     <Post details={ postDetails } toggleNavi={ () => {
                         setAsideStatus(!asideStatus);
@@ -49,6 +47,5 @@ const Snippet = () => {
         }} />
     )
 };
-
 
 export default Snippet;

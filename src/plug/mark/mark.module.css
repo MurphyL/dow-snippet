@@ -1,15 +1,16 @@
-.markdown-to-jsx {
-    margin: 15px 13px 15px 12px;
+.markdown_to_jsx {
+	margin: 15px 13px 15px 12px;
+	padding-bottom: 20px;
 }
 
-.markdown-to-jsx .title>span {
+.markdown_to_jsx .title>span {
 	position: relative;
 }
 
-.markdown-to-jsx .title>span:hover:before {
+.markdown_to_jsx .title>span:hover:before {
     width: calc(100% + 10px);
 }
-.markdown-to-jsx .title>span:before {
+.markdown_to_jsx .title>span:before {
     content: "";
     position: absolute;
     right: -5px;
@@ -20,7 +21,7 @@
     transition: all .3s;
 }
 
-.markdown-to-jsx .title>span:hover:after {
+.markdown_to_jsx .title>span:hover:after {
     position: absolute;
 	top: -5px;
     right: -20px;
@@ -29,12 +30,12 @@
 	content: attr(type) "";
 }
 
-.markdown-to-jsx code {
+.markdown_to_jsx code {
     font-family: Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
 }
 
 
-.markdown-to-jsx blockquote {
+.markdown_to_jsx blockquote {
 	margin: 10px 16px;
 	padding: 10px 20px;
 	border-left: 5px solid #dadada;
@@ -42,7 +43,7 @@
 	letter-spacing: 0.6px;
 }
 
-.markdown-to-jsx .code-block {
+.markdown_to_jsx .code_block {
 	position: relative;
 	margin: 5px 15px;
 	padding: 0;
@@ -53,7 +54,7 @@
     tab-size: 4;
 }
 
-.markdown-to-jsx .code-block::before {
+.markdown_to_jsx .code_block::before {
 	position: absolute;
 	z-index: 1;
 	padding: 2px 3px;
@@ -71,7 +72,7 @@
 	border-bottom-right-radius: 5px;
 }
 
-.markdown-to-jsx .code-block>pre {
+.markdown_to_jsx .code_block>pre {
     position: relative;
     margin: 0;
 	padding: 16px 20px;
@@ -81,13 +82,13 @@
 	background: #f8f8f8;
 }
 
-.markdown-to-jsx .paragraph,
-.markdown-to-jsx li {
+.markdown_to_jsx .paragraph,
+.markdown_to_jsx li {
     line-height: 30px;
 }
 
-.markdown-to-jsx li>code,
-.markdown-to-jsx .paragraph>code {
+.markdown_to_jsx li>code,
+.markdown_to_jsx .paragraph>code {
 	margin: 0 3px;
 	padding: 2px 5px;
 	border: 1px solid #ccc;
@@ -97,35 +98,35 @@
 	background: #f8f8f8;
 }
 
-.markdown-to-jsx table {
+.markdown_to_jsx table {
 	margin: 5px 15px;
     width: calc(100% - 15px * 2);
 	border-top: 1.5px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
 
-.markdown-to-jsx table th, 
-.markdown-to-jsx table td {
+.markdown_to_jsx table th, 
+.markdown_to_jsx table td {
 	padding: 0 10px;
 	line-height: 35px;
 }
 
-.markdown-to-jsx table tbody tr:nth-child(odd) {
+.markdown_to_jsx table tbody tr:nth-child(odd) {
 	background-color: #f2f2f2;
 }
 
-.markdown-to-jsx table tbody tr:nth-child(even) {
+.markdown_to_jsx table tbody tr:nth-child(even) {
 	background-color: #fcfcfc;
 }
 
-.markdown-to-jsx table tbody tr:nth-child(odd) td {
+.markdown_to_jsx table tbody tr:nth-child(odd) td {
 	border-right: 1px solid #fcfcfc;
 }
 
-.markdown-to-jsx table tbody tr:nth-child(even) td {
+.markdown_to_jsx table tbody tr:nth-child(even) td {
 	border-right: 1px solid #f2f2f2;
 }
 
-.markdown-to-jsx table tbody tr td:last-child {
+.markdown_to_jsx table tbody tr td:last-child {
 	border-right: none;
 }

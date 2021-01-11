@@ -1,0 +1,9 @@
+.bar {
+    padding: 3px 10px;
+    line-height: 38px;
+    border-bottom: 1px solid #ccc;
+}
+
+.bar input[type=file] {
+    outline: none;
+}

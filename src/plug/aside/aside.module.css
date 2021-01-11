@@ -1,30 +1,30 @@
 /** aside **/
 @media screen and (max-width: 600px) {
 
-    #app aside.show, 
-    #app nav.show {
+    .show, 
+    .show {
         position: absolute;
         z-index: 9;
     }
 
-    #app aside.show {
+    .aside_plugin.show {
         width: 60px;
         min-width: 60px;
         left: 0;
     }
 
-    #app aside.show ul::before,
-    #app aside.show ul li .text,
-    #app aside.show .links {
+    .aside_plugin.show ul::before,
+    .aside_plugin.show ul li .text,
+    .aside_plugin.show .links {
         display: none;
     }
 
-    #app aside.show ul li {
+    .aside_plugin.show ul li {
         padding: 0 10px 0 0;
         text-align: center;
     }
 
-    #app nav.show {
+    .nav_plugin.show {
         left: 60px;
         background-color: #fff;
         border-right: 1px solid #ccc;
@@ -32,7 +32,7 @@
 
 }
     
-#app aside {
+.aside_plugin {
     padding: 10px 0;
     width: 180px;
     min-width: 180px;
@@ -40,14 +40,14 @@
     color: #ffffff;
 }
 
-#app aside ul {
+.aside_plugin ul {
     margin: 0 0 10px 0;
     padding: 0;
     list-style-type: none;
     font-size: 14px;
 }
 
-#app aside ul::before {
+.aside_plugin ul::before {
     margin-bottom: 5px;
     padding-left: 15px;
     content: attr(label);
@@ -55,7 +55,7 @@
     font-size: 12px;
 }
 
-#app aside ul li {
+.aside_plugin ul li {
     padding-left: 10px;
     height: 40px;
     line-height: 35px;
@@ -63,18 +63,18 @@
     cursor: pointer;
 }
 
-#app aside ul li.selected {
+.aside_plugin ul li.selected {
     border-left: 5px solid #546A7B;
     opacity: 0.8;
     background-color: #363b4b;
 }
 
-#app aside ul li:hover {
+.aside_plugin ul li:hover {
     opacity: 0.6;
     background-color: #363b4b;
 }
 
-#app aside ul li a {
+.aside_plugin ul li a {
     display: inline-block;
     padding-left: 15px;
     width: 100%;
@@ -83,44 +83,45 @@
     color: #fff;
 }
 
-#app aside ul li .icon svg {
+.aside_plugin ul li .icon svg {
     width: 18px;
     height: 18px;
     fill: #fff;
     vertical-align: middle;
 }
 
-#app aside ul li .text {
+.aside_plugin ul li .text {
     margin-left: 5px;
     line-height: 35px;
     vertical-align: middle;
 }
 
 /** 列表 **/
-#app nav {
+.nav_plugin {
     width: 230px;
     min-width: 230px;
 }
 
-#app nav ol {
+.nav_plugin ol {
     margin: 0;
     padding-left: 0;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
-#app nav ol li {
+
+.nav_plugin ol li {
     list-style-type: none;
     line-height: 40px;
     border-bottom: 1px solid rgba(98, 146, 158, 0.1);
     border-left: 5px solid #FDFDFF;
 }
 
-#app nav ol li.selected {
+.nav_plugin ol li.selected {
     border-left: 5px solid rgba(98, 146, 158, 0.2);
 }
 
-#app nav ol li a {
+.nav_plugin ol li a {
     display: block;
     padding-left: 8px;
     width: 99%;
