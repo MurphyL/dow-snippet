@@ -2,10 +2,9 @@ version: '3'
 services:
   front:
     container_name: dow-snippet-web
-    build:
-      context: ../nodejs-lastest
+    image: murphyl/nodejs:latest
     ports:
       - "7000:3000"
     volumes:
       - ".:/usr/murph"
-    command: "npm run serve"
+    command: "yarn run serve"
