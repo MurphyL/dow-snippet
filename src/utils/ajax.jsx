@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
-
+import useSWR from 'swr'
 import axios from 'axios';
+
+const fetcher = (url, options = { method: 'GET' }) => fetch(url, options).then(r => {
+    console.log(Array.from(r.headers.keys()));
+    console.log(r.headers.get('content-type'))
+    return r.json();
+})
+
+export const useFetch = (url, options) => useSWR(url, fetcher, options);
 
 export const useAjax = ({ method = 'GET', url = '' }) => {
     const [ response, setResponse ] = useState({ status: 1 });

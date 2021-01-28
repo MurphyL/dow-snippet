@@ -13,6 +13,8 @@ docker pull alpine
 docker run --rm -it alpine
 ```
 
+## Dockerfile 支持多段构建
+
 ## `docker-compose`
 
 ```sh

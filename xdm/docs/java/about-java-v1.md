@@ -19,6 +19,7 @@ list: true
 ## 其他工具库
 
 - [JSQLParser/JSqlParser](https://github.com/JSQLParser/JSqlParser)
+- JEXL、mvel、beanshell、SpEL - Java 表达式引擎
 
 ## JDK 镜像
 

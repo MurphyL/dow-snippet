@@ -15,4 +15,7 @@ ssh-keygen -t rsa -C "example@email.com"
 
 # 拷贝SSH公钥到远程
 ssh-copy-id remote_user@remote_host
+
+# 检查链接
+ssh -vvv remote_user@remote_host
 ```

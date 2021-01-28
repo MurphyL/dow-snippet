@@ -47,3 +47,4 @@ java.util.function 它包含了很多类，用来支持 Java的 函数式编程�
 ## 参考资料
 
 - [Java 8 - 函数编程（Lambda表达式）](https://www.pdai.tech/md/java/java8/java8-stream.html)
+- [JSR 335: Lambda Expressions for the Java Programming Language](https://jcp.org/en/jsr/detail?id=335)

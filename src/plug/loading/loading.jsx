@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 
-import { useAjax } from 'utils/ajax-hooks.jsx';
+import { useAjax } from 'utils/ajax.jsx';
 
 const Loading = ({ message }) => {
     return (
